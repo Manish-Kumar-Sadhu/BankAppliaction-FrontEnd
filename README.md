@@ -1,5 +1,14 @@
 # Rejoice
 
+![Angular](https://cdn.iconscout.com/icon/free/png-256/angular-2-226068.png)
+![Rxjs](http://reactivex.io/favicon.ico)
+![ES6](https://user-images.githubusercontent.com/363164/39964557-738a8178-56a4-11e8-8920-a4eaaa15404c.png)
+![TypeScript](https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/377/square_256/typescriptlang.png)
+![npm](https://cdn.iconscout.com/icon/free/png-256/npm-2-569450.png)
+![HTML5](https://cdn.jsdelivr.net/npm/@programming-languages-logos/html@0.0.1/html_256x256.png)
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.1.
 
 ## Development server
