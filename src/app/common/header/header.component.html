@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-icon-button>
+        <!-- <mat-icon (click)="sidenav.toggle()">menu</mat-icon> -->
+      </button>
+      <h1>Business Bank</h1>
+      <span class="menu-spacer"></span>
+      <div fxFlex  fxLayoutAlign="end" fxHide.xs> 
+        <!-- <a mat-button [routerLink]="'/accounts'"> Accounts </a> -->
+        <!-- <a mat-button [routerLink]="'/create-account'"> Create Account </a> -->
+        <!-- <a mat-button [routerLink]="'/contacts'"> Contacts </a> -->
+        <button mat-button [routerLink]="'/contacts'">  Contact </button>
+        <button mat-button [routerLink]="'/about'"> About </button>
+        <span class="menu-spacer"></span>
+        <span class="menu-spacer"></span>
+        <span class="menu-spacer"></span>
+        <button mat-button [routerLink]="'/login'"> Login </button>
+        <!-- <button mat-button [routerLink]="'/login'"> Login </button> -->
+
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
