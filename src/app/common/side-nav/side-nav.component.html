@@ -18,5 +18,6 @@
             <ng-template #selectedComp> <p>Display : {{comp}}</p> </ng-template>
             <app-change-password *ngIf="comp==='Change Password'"></app-change-password>
             <app-accounts *ngIf="comp==='Accounts'"></app-accounts>
+            <app-transfer *ngIf="comp==='Transfer'"></app-transfer>
     </mat-sidenav-content>
 </mat-sidenav-container>
