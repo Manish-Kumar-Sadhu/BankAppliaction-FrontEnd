@@ -3,6 +3,8 @@ import { FormGroup } from '@angular/forms';
 import {  AuthenticationService } from '../../shared_services/authentication.service';
 import { User } from 'src/app/models/user.model';
 import { first } from 'rxjs/operators';
+import {MatSnackBar} from '@angular/material/snack-bar';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -28,12 +30,11 @@ export class LoginComponent implements OnInit {
         .subscribe(
           data => {
             console.log(data);
+            console.log("successgul");
           },
            error => {
              console.log("Login failed & error is "+error);
            }
         )
-    
-    
   }
 }

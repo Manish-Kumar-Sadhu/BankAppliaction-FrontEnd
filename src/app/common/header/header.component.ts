@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from 'src/app/shared_services/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  public isLoggedIn = localStorage.getItem('isLoggedIn');
+  public currentUser;
   private LOGO = require("../../../assets/inguz.png");
-  constructor() { }
+  constructor(private router: Router, private _authenticationService: AuthenticationService) { 
+    // this._authenticationService.cu
+  }
 
   ngOnInit() {
+    console.log(this.isLoggedIn)
+  }
+
+  logout(){
+    this._authenticationService.logout()
+    localStorage.removeItem('isLoggedIn')
+    this.router.navigate(['/login'])
   }
 
 }

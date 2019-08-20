@@ -9,6 +9,7 @@ export class SideNavComponent implements OnInit {
 
   opened = false;
   comp: string;
+  isLoggedIn;
   constructor() { }
 
   // TODO: choose best names for sidenav
@@ -17,6 +18,7 @@ export class SideNavComponent implements OnInit {
     ];
 
   ngOnInit() {
+    this.isLoggedIn = localStorage.getItem('isLoggedIn');
   }
 
   displayComponent(comp:string){

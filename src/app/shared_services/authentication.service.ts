@@ -14,20 +14,23 @@ export class AuthenticationService {
     // this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
   }
   private baseUrl:String = 'http://localhost:8080';
-  private headers = new HttpHeaders({'Content-Type':'text/plain'});
+  private headers = new HttpHeaders({'Content-Type':'application/json'});
 
   login(email , password) {
-    let body = new HttpParams();
-    body.set('email' , email);
-    body.set('password' , password)
-    return this.http.post<any>(this.baseUrl+'/auth/login' , body )
+    
+    return this.http.post<any>(this.baseUrl+'/auth/login' , JSON.stringify({'email':email , 'password':password , 'type':'customer'}) , {headers:this.headers} )
     .pipe( map(user => {
-        // localStorage.setItem('currentUser', JSON.stringify(user));
-        console.log(JSON.parse(user));
+        localStorage.setItem('isLoggedIn' , 'true');
+        localStorage.setItem('currentUser', JSON.stringify(user));
         return user;
       })
-
     )
   }
+
+  logout() {
+    // remove user from local storage and set current user to null
+    localStorage.removeItem('currentUser');
+    // this.currentUserSubject.next(null);
+}
 
 }

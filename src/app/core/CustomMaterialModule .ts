@@ -1,6 +1,6 @@
 import {NgModule} from "@angular/core";
 import  {MatButtonModule, MatCardModule, MatMenuModule ,  MatInputModule, MatCheckboxModule,
-    MatListModule, MatToolbarModule, MatSidenavModule, MatIconModule  ,MatProgressSpinnerModule, MatExpansionModule, MatDividerModule, MatGridListModule} from '@angular/material';
+    MatListModule, MatToolbarModule, MatSidenavModule, MatIconModule  ,MatProgressSpinnerModule, MatExpansionModule, MatDividerModule, MatGridListModule, MatSnackBarModule} from '@angular/material';
 
     const Material = [
       MatToolbarModule,
@@ -16,6 +16,7 @@ import  {MatButtonModule, MatCardModule, MatMenuModule ,  MatInputModule, MatChe
       MatExpansionModule,
       MatGridListModule,
       MatDividerModule,
+      MatSnackBarModule
     ]
 
     @NgModule({
