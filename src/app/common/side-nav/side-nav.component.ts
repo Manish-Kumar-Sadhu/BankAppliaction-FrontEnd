@@ -13,7 +13,7 @@ export class SideNavComponent implements OnInit {
   constructor() { }
 
   // TODO: choose best names for sidenav
-   nav_items:string[] = ['Profile' , 'Accounts' , 'Change Password' , 'Transfer' , 'Transaction Summary' , 
+   nav_items:string[] = ['Profile' , 'Accounts' , 'ChangePassword' , 'Transfer' , 'Transaction Summary' , 
           'Add Employee' , 'Customer Requests',    'Transaction Overflows',`FAQ's`
     ];
 
