@@ -1,0 +1,22 @@
+<mat-sidenav-container>
+        
+    <!-- mode can be push | side | over -->
+    <mat-sidenav #sideNav mode="side" [(opened)]="opened" >
+        <h4>#Name Here</h4>
+        <mat-divider style="color: rgb(255, 255, 255)"></mat-divider>
+        <mat-nav-list>
+            <a mat-list-item (click)="displayComponent(item)"  *ngFor="let item of nav_items">{{item}} </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+            <button mat-mini-fab color="accent" (click)="opened=!opened"  disableRipple>
+                <mat-icon *ngIf="opened; else closed;">keyboard_arrow_left</mat-icon>
+                <ng-template #closed><mat-icon>keyboard_arrow_right</mat-icon></ng-template>
+            </button>
+            <p *ngIf="!comp; else selectedComp">Display : Dashboard</p>
+            <!-- TODO: add icon for each nav item -->
+            <ng-template #selectedComp> <p>Display : {{comp}}</p> </ng-template>
+            <app-change-password *ngIf="comp==='Change Password'"></app-change-password>
+            <app-accounts *ngIf="comp==='Accounts'"></app-accounts>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,8 +1,8 @@
 import {NgModule} from "@angular/core";
 import  {MatButtonModule, MatCardModule, MatMenuModule ,  MatInputModule, MatCheckboxModule,
-    MatListModule, MatToolbarModule, MatSidenavModule, MatIconModule  ,MatProgressSpinnerModule} from '@angular/material';
+    MatListModule, MatToolbarModule, MatSidenavModule, MatIconModule  ,MatProgressSpinnerModule, MatExpansionModule, MatDividerModule, MatGridListModule} from '@angular/material';
 
-    const MaterialComponents = [
+    const Material = [
       MatToolbarModule,
       MatButtonModule,
       MatListModule,
@@ -12,15 +12,18 @@ import  {MatButtonModule, MatCardModule, MatMenuModule ,  MatInputModule, MatChe
       MatCardModule,
       MatInputModule,
       MatProgressSpinnerModule,
-      MatCheckboxModule
+      MatCheckboxModule,
+      MatExpansionModule,
+      MatGridListModule,
+      MatDividerModule,
     ]
 
     @NgModule({
         imports: [
-          MaterialComponents
+          Material
         ],
         exports:[
-          MaterialComponents
+          Material
         ]
       })
 

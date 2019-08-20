@@ -3,12 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './common/login/login.component';
 import { PagenotfoundComponent } from './common/pagenotfound/pagenotfound.component';
 import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './common/about/about.component';
 
 
 const routes: Routes = [
   {path:'' , component:HomeComponent},
   {path:'login' , component:LoginComponent},
+  {path:'about' , component:AboutComponent},
   {path:'**' ,  component:PagenotfoundComponent}
+
 ];
 
 @NgModule({

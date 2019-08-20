@@ -14,6 +14,9 @@ import { HomeComponent } from './home/home.component';
 import { CustomMaterialModule } from './core/CustomMaterialModule ';
 import { BankOpsComponent } from './bank-components/bank-ops/bank-ops.component';
 import { ChangePasswordComponent } from './common/change-password/change-password.component';
+import { SideNavComponent } from './common/side-nav/side-nav.component';
+import { AccountsComponent } from './customer-components/accounts/accounts.component';
+import { AboutComponent } from './common/about/about.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +25,10 @@ import { ChangePasswordComponent } from './common/change-password/change-passwor
     PagenotfoundComponent,
     HomeComponent,
     BankOpsComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    SideNavComponent,
+    AccountsComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

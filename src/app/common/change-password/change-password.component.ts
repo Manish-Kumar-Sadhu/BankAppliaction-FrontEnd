@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChangePasswordComponent implements OnInit {
 
+  hide = true;//password visibility property
+  email:string = 'get from session'
   constructor() { }
 
   ngOnInit() {

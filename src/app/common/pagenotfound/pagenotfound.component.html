@@ -1,7 +1,15 @@
 <div class="container">
-    <body style="text-align: center; margin-top: 15%">
+    <body style="text-align: center; align-items: center">
+        <mat-icon>bug</mat-icon>
+        <img src="https://png.pngtree.com/svg/20170214/e34a798e9d.svg" width="25%" height="25%">
+        <span style="font-size: 1rem">!</span>
         <h1>PAGE NOT FOUND!</h1>
-        <span>Navigate to home</span> <br>
-        <button mat-flat-button color="primary" [routerLink]="''"  >Home</button>
+        <pre>
+            We can't find the page you're looking🔎 for.
+            You can either return to the previous page , visit our 🏠 homepage
+            or 📞 contact our support team. Sorry for the inconvenience😞
+        </pre>
+        <button mat-stroked-button color="primary"  [routerLink]="''"  >Visit HomePage</button>
+        <button mat-raised-button color="primary" style="margin-left: 1rem" [routerLink]="'/contacts'"  >Contact Us</button>
     </body>
 </div>

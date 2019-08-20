@@ -1,0 +1,29 @@
+<!-- accordions  -->
+<mat-accordion multi=true>
+    <mat-expansion-panel
+    *ngFor="let account of accountLists; let i=index"
+    >
+    <mat-expansion-panel-header>
+        <mat-panel-title>{{i+1}}</mat-panel-title>    
+        <mat-panel-title><b>Account holder :</b>{{ account.owner }}</mat-panel-title>    
+        <mat-panel-description>
+            <b> Account no : </b> {{ account.account_number }}
+        </mat-panel-description>
+        <!-- TODO:  fill as may details as possible-->
+    </mat-expansion-panel-header>
+    <p>Add css. (Balance | Account Creation Date | any other details)</p>
+    <!-- TODO: improve the data presentation -->
+    <pre>
+        Account Type : {{account.account_type}} 
+        Balance:{{account.balance}}                        
+        Created Date:{{account.created_date}}
+        Registered Mobile : {{account.registered_mobile}}
+        Other 
+    </pre>
+    <mat-action-row>
+        <!-- TODO:  Improvise actions & disabling account by customer-->
+        <button mat-button>Enroll | Other Actions</button>
+        <button mat-button>View Transaction Summary</button>
+    </mat-action-row>
+</mat-expansion-panel>
+</mat-accordion>   
