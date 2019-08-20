@@ -17,6 +17,8 @@ import { ChangePasswordComponent } from './common/change-password/change-passwor
 import { SideNavComponent } from './common/side-nav/side-nav.component';
 import { AccountsComponent } from './customer-components/accounts/accounts.component';
 import { AboutComponent } from './common/about/about.component';
+import { RegisterComponent } from './register/register.component';
+import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,9 @@ import { AboutComponent } from './common/about/about.component';
     ChangePasswordComponent,
     SideNavComponent,
     AccountsComponent,
-    AboutComponent
+    AboutComponent,
+    RegisterComponent,
+    CustomerProfileComponent
   ],
   imports: [
     BrowserModule,

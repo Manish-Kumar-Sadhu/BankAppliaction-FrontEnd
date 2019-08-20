@@ -1,0 +1,136 @@
+<app-header></app-header>
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<mat-card class="register-card" >
+        <mat-card-header>
+          <mat-card-title>Registration Form</mat-card-title>
+        </mat-card-header>
+        <form #RegisterForm="ngForm" (ngSubmit)="processRegisterForm()">
+                    <mat-card-content style="display: inline-block">
+                            <div class="row">
+                                    <div class="col-md-6">
+                       <mat-form-field appearance="outline">
+                            <mat-label>FirstName</mat-label>
+                            <input matInput type="text" placeholder="first_name" name="first_name" required  [(ngModel)]="first_name">
+                          </mat-form-field>
+                          
+
+                          </div>
+                          
+                                <div class="col-md-6">
+                          <mat-form-field appearance="outline">
+                                <mat-label>LastName</mat-label>
+                                <input matInput type="text" placeholder="lastName" name="lastName" required  [(ngModel)]="last_name">
+                              </mat-form-field>
+                              </div>
+                            </div>
+                      
+                         
+                        
+                       <div class="row">
+                       <div class="col-md-6">
+                            <mat-form-field appearance="outline">
+                                    <mat-label>Email</mat-label>
+                                    <input matInput type="email" placeholder="Email" name="email" required  [(ngModel)]="email">
+                                  </mat-form-field>
+                                </div>
+                        <div class="col-md-6">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Phone Number</mat-label>
+                            <input matInput type="text" placeholder="Mobile" name="phoneNumber" required  [(ngModel)]="mobile_no">
+                            <mat-icon matSuffix>phone</mat-icon>
+                        </mat-form-field>
+                        </div>
+                          
+                       </div>
+
+                   <div class="row">
+                        <div class="col-md-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>House No</mat-label>
+                                    <input matInput type="text" placeholder="house_no" name="house_no" required  [(ngModel)]="house_no">
+                                  </mat-form-field>
+                                  
+                               </div>
+                               <div class="col-md-6">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Street</mat-label>
+                                        <input matInput type="text" placeholder="street" name="street" required  [(ngModel)]="street">
+                                      </mat-form-field>
+                                      
+                                   </div>
+
+                   </div>
+                   <div class="row">
+                        <div class="col-md-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>District</mat-label>
+                                    <input matInput type="text" placeholder="district" name="district"  [(ngModel)]="district">
+                                  </mat-form-field>
+                                  
+                               </div>
+                               <div class="col-md-6">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>State</mat-label>
+                                        <input matInput type="text" placeholder="state" name="state" required  [(ngModel)]="state">
+                                      </mat-form-field>
+                                      
+                                   </div>
+
+                   </div>
+                   
+                   <div class="row">
+                        <div class="col-md-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Pancard</mat-label>
+                                    <input matInput type="text" placeholder="pan_card" name="pan_card" required  [(ngModel)]="pan_card">
+                                  </mat-form-field>
+                                  
+                               </div>
+                               <div class="col-md-6">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Passport</mat-label>
+                                        <input matInput  type="text" placeholder="passport" name="passport"  [(ngModel)]="passport">
+                                      </mat-form-field>
+                                      
+                                   </div>
+
+                   </div>
+                   <div class="row">
+                      
+                        <div class="col-md-6">
+                             <mat-form-field appearance="outline">
+                                 <mat-label>Aadhar Number</mat-label>
+                                 <input matInput type="number" placeholder="Aadhar Number" name="aadharNumber" required  [(ngModel)]="aadhar_card">
+                               </mat-form-field>
+                               
+                            </div>
+
+                     </div>
+
+                     <div class="row">
+                            <div class="col-md-6">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Employee Designation</mat-label>
+                                        <input matInput type="text" placeholder="employee_designation" name="employee_designation" required  [(ngModel)]="employee_designation">
+                                      </mat-form-field>
+                                      
+                                   </div>
+    
+                       </div>
+
+                       <mat-checkbox>I agree to Business Bank's Terms and Conditions</mat-checkbox>
+          
+                   <mat-card-actions>
+                        <button mat-raised-button color="primary" type="submit">Register</button>
+                        <a mat-raised-button routerLink="">Add Account</a>
+                      </mat-card-actions>
+                    </mat-card-content>
+    </form>
+</mat-card>
+           
