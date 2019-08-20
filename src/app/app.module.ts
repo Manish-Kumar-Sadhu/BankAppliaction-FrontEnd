@@ -17,6 +17,12 @@ import { ChangePasswordComponent } from './common/change-password/change-passwor
 import { SideNavComponent } from './common/side-nav/side-nav.component';
 import { AccountsComponent } from './customer-components/accounts/accounts.component';
 import { AboutComponent } from './common/about/about.component';
+<<<<<<< HEAD
+import { RegisterComponent } from './register/register.component';
+import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
+=======
+import { TransferComponent } from './transfer/transfer.component';
+>>>>>>> f82e20be57d0f6e62b80d8ae60b81b87d86d2e85
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +34,13 @@ import { AboutComponent } from './common/about/about.component';
     ChangePasswordComponent,
     SideNavComponent,
     AccountsComponent,
-    AboutComponent
+    AboutComponent,
+<<<<<<< HEAD
+    RegisterComponent,
+    CustomerProfileComponent
+=======
+    TransferComponent
+>>>>>>> f82e20be57d0f6e62b80d8ae60b81b87d86d2e85
   ],
   imports: [
     BrowserModule,
