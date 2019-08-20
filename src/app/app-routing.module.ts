@@ -4,13 +4,16 @@ import { LoginComponent } from './common/login/login.component';
 import { PagenotfoundComponent } from './common/pagenotfound/pagenotfound.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './common/about/about.component';
+import { TransferComponent } from './transfer/transfer.component';
 
 
 const routes: Routes = [
   {path:'' , component:HomeComponent},
+  {path:'transfer',component:TransferComponent},
   {path:'login' , component:LoginComponent},
   {path:'about' , component:AboutComponent},
-  {path:'**' ,  component:PagenotfoundComponent}
+  {path:'**' ,  component:PagenotfoundComponent},
+  
 
 ];
 
