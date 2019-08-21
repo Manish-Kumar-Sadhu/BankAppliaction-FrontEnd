@@ -20,6 +20,7 @@ import { AboutComponent } from './common/about/about.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { RegisterComponent } from './register/register.component';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
+import { TransactionSummaryComponent } from './transaction-summary/transaction-summary.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +36,7 @@ import { CustomerProfileComponent } from './customer-profile/customer-profile.co
     RegisterComponent,
     CustomerProfileComponent,
     TransferComponent,
+    TransactionSummaryComponent
   ],
   imports: [
     BrowserModule,

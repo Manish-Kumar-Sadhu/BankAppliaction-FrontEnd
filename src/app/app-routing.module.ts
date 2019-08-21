@@ -8,6 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import { TransferComponent } from './transfer/transfer.component';
 
 
+
 const routes: Routes = [
   {path:'' , component:HomeComponent },
   {path:'transfer',component:TransferComponent},

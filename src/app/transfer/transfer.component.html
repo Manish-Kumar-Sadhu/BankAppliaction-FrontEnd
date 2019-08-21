@@ -1,9 +1,12 @@
+<mat-card class="transfer-form" >
+        <mat-card-header>
+          <mat-card-title>Transfer</mat-card-title>
+        </mat-card-header>
+<form #TransferForm="ngForm" (ngSubmit)="onSubmit()"> 
 
-<mat-form-field>
-    
+<mat-form-field appearance="outline"> 
     <mat-label>Select an Account</mat-label><br>
     <mat-select [(value)]="selected">
-      <mat-option>None</mat-option>
       <mat-option value="3795767342">3795767342</mat-option>
       <mat-option value="2374672647">2374672647</mat-option>
       <mat-option value="6532876587">6532876587</mat-option>
@@ -13,51 +16,49 @@
 <br>
 <div class="row">
 <div class="col-md-6">
-    <mat-form-field>
+    <mat-form-field appearance="outline">
     <mat-label>From AccountNo.</mat-label>
     <input matInput disabled>{{selected}}
     <br>
     </mat-form-field>
-
 </div>
 <br>
 <div class="col-md-6">
-        <mat-form-field>
+        <mat-form-field appearance="outline">
         <mat-label>To AccountNo.</mat-label>
+        <br>
         <input matInput placeholder="XXXXX">
         <br>
         </mat-form-field>
 </div>
 </div>
+<br>
 <div class="row">
         <div class="col-md-6">
-            <mat-form-field>
+            <mat-form-field appearance="outline">
             <mat-label>Enter the Amount</mat-label>
+            <br>
             <input matInput type="number" placeholder="In Rupees" required>
             <br>
             </mat-form-field>
         </div>
         <br>
         <div class="col-md-6">
-                <mat-form-field>
+                <mat-form-field appearance="outline">
                 <mat-label>Description</mat-label>
                 <textarea matInput></textarea>
                 <br>
                 </mat-form-field>
         </div>
-        </div>
-<div class="mandatory">
+</div>
+<br>
+<div>
 <mat-checkbox>Confirm</mat-checkbox>
 </div>
 <br>
 <br>
-
 <div class="example-button-row">
         <button mat-raised-button>Submit</button>
 </div>
-
-
-
-<!-- <mat-form-field>
-<mat-label>To AccountNo.</mat-label>
-</mat-form-field> -->
+</form>
+</mat-card>
