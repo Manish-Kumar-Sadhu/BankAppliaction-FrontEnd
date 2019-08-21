@@ -1,208 +1,64 @@
-<app-header></app-header>
-
-
-
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
 
 <mat-card class="profile-card" >
-        <mat-card-header>
-          <mat-card-title>Customer Details</mat-card-title>
-        </mat-card-header>
-      <hr>
-        <form #RegisterForm="ngForm" (ngSubmit)="processRegisterForm()">
-                    <mat-card-content style="display: inline-block">
-                      <table >
-                          <tr> <div class="row">
-                                    <div class="col-md-6">
-                                     <td><h5>First Name</h5></td>
-                                      </div> 
-                                    
-                         <div class="col-md-6">
-                           <td>
-                          <mat-form-field >
-                              <mat-label>FirstName</mat-label>
-                              <input matInput disabled type="text" placeholder="First Name" name="fname" >
-                            </mat-form-field></td>
-                           </div>
-                        
-                       </div> </tr>
-                             
-                           
-                           
-                            
-                             <tr> <div class="row">
-                                <div class="col-md-6">
-                                 <td> <h5>Last Name</h5></td>
-
-                                </div>
-                                <div class="col-md-6">
-                                  <td>
-                                <mat-form-field >
-                                    <mat-label>Last Name</mat-label>
-                                    <input matInput disabled type="text" placeholder="Last Name" name="lname" >
-                                  </mat-form-field></td>
-                                  </div>
-                                  </div></tr>
-                         
-                        
-                       
-                         <tr> <div class="row">
-                              <div class="col-md-6">
-                               <td> <h5>Email</h5></td>
-                                  </div>
-        
-                              <div class="col-md-6">
-                             <td>  <mat-form-field >
-                                    <mat-label>Email</mat-label>
-                                    <input matInput disabled type="email" placeholder="Email" >
-                                  </mat-form-field></td>
-                                </div>
-                              </div>
-                            </tr>
-                              <div class="row">
-                                  <div class="col-md-6"  >
-                                    <h5 >Phone Number</h5>
-                                      </div>
-            
-                                  <div class="col-md-6">
-                                   <mat-form-field appearance="outline">
-                                        <mat-label>Phone Number</mat-label>
-                                        <input matInput disabled type="number" placeholder="phone number" >
-                                      </mat-form-field>
-                                    </div>
-                                  </div>
-                    
-
-                   <div class="row">
-                      <div class="col-md-6"  >
-                          <h5 >House No</h5>
-                            </div>
-                        <div class="col-md-6">
-                                <mat-form-field appearance="outline">
-                                    <mat-label>House No</mat-label>
-                                    <input matInput disabled type="text" placeholder="House NUmber" name="hno" >
-                                  </mat-form-field>
-                                  </div>
-                               </div>
-
-                               <div class="row">
-                                  <div class="col-md-6"  >
-                                      <h5 >Street</h5>
-                                        </div>
-                               <div class="col-md-6">
-                                    <mat-form-field appearance="outline">
-                                        <mat-label>Street</mat-label>
-                                        <input matInput disabled type="text" placeholder="street" name="street" >
-                                      </mat-form-field> 
-                                   </div>
-                                  </div>
-
-                   <div class="row">
-                      
-                          <div class="col-md-6"  >
-                              <h5 >District</h5>
-                                </div>
-                        <div class="col-md-6">
-                                <mat-form-field appearance="outline">
-                                    <mat-label>District</mat-label>
-                                    <input matInput disabled type="text" placeholder="District" name="district"  [(ngModel)]="district" #districtField='ngModel' required [class.is-invalid]='districtField.invalid' >
-                                    <small [class.d-none]='districtField.valid || districtField.untouched' class='text-danger'> Is required</small>
-                                  </mat-form-field>
-                                  
-                               </div></div>
-                               <div class="row">
-                      
-                                  <div class="col-md-6"  >
-                                      <h5 >State</h5>
-                                        </div>
-                               <div class="col-md-6">
-                                    <mat-form-field appearance="outline">
-                                        <mat-label>State</mat-label>
-                                        <input matInput  disabled type="text" placeholder="state" name="state" required  [(ngModel)]="state" #stateField='ngModel'[class.is-invalid]='stateField.invalid'>
-                                       
-                                        <small [class.d-none]='stateField.valid || stateField.untouched' class='text-danger'>Is required</small>
-                                      </mat-form-field>
-                                      
-                                   </div>
-
-                   </div>
-                   
-                   <div class="row">
-                     
-                      
-                          <div class="col-md-6"  >
-                              <h5 >Pan Card</h5>
-                                </div>
-                        <div class="col-md-6">
-                                <mat-form-field appearance="outline">
-                                    <mat-label>Pancard</mat-label>
-                                    <input matInput type="text"  disabled placeholder="panCard" name="pancard" required  [(ngModel)]="pan_card" #pancardField='ngModel'  [class.is-invalid]='pancardField.invalid' maxlength="10"  minlength="10" >
-                                    <small [class.d-none]='pancardField.valid || pancardField.untouched' class='text-danger'> Enter Valid Pan Number</small>
-                                  </mat-form-field>
-                                  
-                               </div></div>
-                              
-                               <div class="row">
-                      
-                                  <div class="col-md-6"  >
-                                      <h5 >Passport</h5>
-                                        </div>
-                               <div class="col-md-6">
-                                    <mat-form-field appearance="outline">
-                                        <mat-label>Passport</mat-label>
-                                        <input matInput disabled type="text" placeholder="passport" name="passport"  [(ngModel)]="passport" #passportField='ngModel' required [class.is-invalid]='passportField.invalid' maxlength="8"  minlength="8" >
-                                        <small [class.d-none]='passportField.valid || passportField.untouched' class='text-danger'> Enter Valid Passport Number</small>
-                                      </mat-form-field>
-                                      
-                                   </div>
-
-                   </div>
-                   <div class="row">
-                      
-                      
-                          <div class="col-md-6"  >
-                              <h5 >Aadhar Number</h5>
-                                </div>
-                      
-                        <div class="col-md-6">
-                             <mat-form-field appearance="outline">
-                                 <mat-label>Aadhar Number</mat-label>
-                                 <input matInput disabled type="number" placeholder="Aadhar Number" name="aadhar" required  [(ngModel)]="aadhar_card"  #aadharField='ngModel' required [class.is-invalid]='aadharField.invalid' pattern="[0-9]{12}" >
-                                 <small [class.d-none]='aadharField.valid || aadharField.untouched' class='text-danger'>Enter Valid Aadhar Number</small>
-                               </mat-form-field>
-                               
-                            </div>
-
-                     </div>
-
-                     <div class="row">
-                       
-                      
-                            <div class="col-md-6"  >
-                                <h5 >Employee Designation</h5>
-                                  </div>
-                            <div class="col-md-6">
-                                    <mat-form-field appearance="outline">
-                                        <mat-label>Employee Designation</mat-label>
-                                        <input matInput  disabled type="text" placeholder="employee Designation" name="employeed" required  [(ngModel)]="employee_designation" #employeedField='ngModel'  [class.is-invalid]='employeedField.invalid'   >
-                                        <small [class.d-none]='employeedField.valid || employeedField.untouched' class='text-danger'> Is required</small>
-                                      </mat-form-field>
-                                      
-                                   </div>
-    
-                       </div>
-
-                      
-                   <mat-card-actions>
-                        <button mat-raised-button color="primary" type="submit" >Register</button>
-                        <!-- <a mat-raised-button routerLink="">Add Account</a> -->
-                      </mat-card-actions>
-                   </table>
-                    </mat-card-content>
-
+    <mat-card-header>
+      <mat-card-title>Customer Details</mat-card-title>
+    </mat-card-header>
+  <mat-divider></mat-divider> <br>
+    <form #RegisterForm="ngForm" (ngSubmit)="processRegisterForm()">
+        <mat-card-content>
+            <mat-form-field appearance="outline">
+              <mat-label>  First Name</mat-label>
+              <input matInput value={{userDetails.first_name}} name="first_name" type="text" required [disabled]="!enableEdit" >
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Last  Name</mat-label>
+              <input matInput value={{userDetails.last_name}} name="last_name" type="text" required [disabled]="!enableEdit" >
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Email</mat-label>
+              <input matInput value={{userDetails.email}} name="email" type="text" required [disabled]="!enableEdit" >
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Mobile No.</mat-label>
+              <input matInput value={{userDetails.mobile_no}} name="mobile_no" type="text" required [disabled]="!enableEdit" >
+            </mat-form-field>
+            <mat-divider [inset]="true"></mat-divider>
+            <br>
+            <mat-form-field appearance="outline">
+                <mat-label>Aadhar Card</mat-label>
+                <input matInput value={{userDetails.aadhar_card}} name="aadhar_card" type="text" required [disabled]="!enableEdit" >
+            </mat-form-field> 
+            <mat-form-field appearance="outline">
+                <mat-label>Pan Card</mat-label>
+                <input matInput value={{userDetails.pan_card}} name="pan_card" type="text" required [disabled]="!enableEdit" >
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                  <mat-label>Passport</mat-label>
+                  <input matInput value={{userDetails.passport}} name="passport" type="text" required [disabled]="!enableEdit" >
+              </mat-form-field>
+              <mat-divider [inset]="true"></mat-divider>
+              <br>
+              <mat-form-field appearance="outline">
+                  <mat-label>Address</mat-label>
+                  <input matInput value={{userDetails.house_no}} name="house_no" type="text" required [disabled]="!enableEdit" >
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                  <mat-label>Street</mat-label>
+                  <input matInput value={{userDetails.street}} name="street" type="text" required [disabled]="!enableEdit" >
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                  <mat-label>District</mat-label>
+                  <input matInput value={{userDetails.district}} name="district" type="text" required [disabled]="!enableEdit" >
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                  <mat-label>State</mat-label>
+                  <input matInput value={{userDetails.state}} name="state" type="text" required [disabled]="!enableEdit" >
+              </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions align="center">
+          <button mat-flat-button color="primary" type="button" [hidden]="toggleEditSaveButton" (click)="enableEditing() ">Edit<mat-icon>edit</mat-icon></button>
+          <button mat-flat-button color="primary" type="submit" [hidden]="!toggleEditSaveButton" >Save</button>
+        </mat-card-actions>        
     </form>
 </mat-card>
            

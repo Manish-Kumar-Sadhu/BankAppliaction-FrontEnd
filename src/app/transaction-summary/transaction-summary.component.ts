@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TRANSACTIONLIST } from '../transactions-mock';
-import { Transaction } from '../transaction';
+import { Transaction } from '../models/transaction.model';
 
 @Component({
   selector: 'app-transaction-summary',

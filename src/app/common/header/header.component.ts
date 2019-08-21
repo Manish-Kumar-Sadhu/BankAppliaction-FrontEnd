@@ -11,6 +11,7 @@ export class HeaderComponent implements OnInit {
 
   public isLoggedIn;
   public currentUser;
+  userType = localStorage.getItem('userType');
   private LOGO = require("../../../assets/inguz.png");
   constructor(private router: Router, private _authenticationService: AuthenticationService) { 
     // this._authenticationService.cu

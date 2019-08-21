@@ -8,15 +8,18 @@ import { Component, OnInit } from '@angular/core';
 export class SideNavComponent implements OnInit {
 
   opened = false;
-  comp: string;
+  comp: string ="Profile";
   isLoggedIn;
+  userType = localStorage.getItem('userType');
   constructor() { }
 
-  // TODO: choose best names for sidenav
-   nav_items:string[] = ['Profile' , 'Accounts' , 'ChangePassword' , 'Transfer' , 'Transaction Summary' , 
-          'Add Employee' , 'Customer Requests',    'Transaction Overflows',`FAQ's`
-    ];
 
+  // TODO: choose best names for sidenav
+  customer_items:string[] = [ 'Profile' , 'Accounts' ,  'TransactionSummary',  'Transfer',  
+          'AddBankAccount' ,'ChangePassword' ,  `FAQ's` ];
+  
+  bank_items:string[] = ['Dashboard' , 'Profile' , 'Customer Accounts' ,  'CustomerRequests' ,'ChangePassword'];
+  nav_items:string[] = (this.userType ==='customer' ? this.customer_items : this.bank_items);
   ngOnInit() {
     this.isLoggedIn = localStorage.getItem('isLoggedIn');
   }
