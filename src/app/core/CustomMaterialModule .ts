@@ -1,6 +1,6 @@
 import {NgModule} from "@angular/core";
-import  {MatButtonModule, MatCardModule, MatMenuModule ,  MatInputModule, MatCheckboxModule, MatTabsModule,
-    MatListModule, MatToolbarModule, MatSidenavModule, MatIconModule  ,MatProgressSpinnerModule, MatExpansionModule, MatDividerModule, MatGridListModule, MatTabGroup, MatTableModule, MatSnackBarModule} from '@angular/material';
+import  {MatButtonModule, MatCardModule, MatMenuModule ,  MatInputModule, MatCheckboxModule,
+    MatListModule, MatToolbarModule, MatSidenavModule, MatIconModule  ,MatProgressSpinnerModule, MatExpansionModule, MatDividerModule, MatGridListModule, MatTableModule} from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
     const Material = [
       MatToolbarModule,
@@ -18,10 +18,8 @@ import {MatSelectModule} from '@angular/material/select';
       MatExpansionModule,
       MatGridListModule,
       MatDividerModule,
-      MatSnackBarModule,
       MatSelectModule,
-      MatTabsModule,
-      MatIconModule
+      MatTableModule
     ]
 
     @NgModule({

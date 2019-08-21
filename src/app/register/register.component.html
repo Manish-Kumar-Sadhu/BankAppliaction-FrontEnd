@@ -1,6 +1,7 @@
 <app-header></app-header>
 
 
+
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -16,7 +17,8 @@
                                     <div class="col-md-6">
                        <mat-form-field appearance="outline">
                             <mat-label>FirstName</mat-label>
-                            <input matInput type="text" placeholder="first_name" name="first_name" required  [(ngModel)]="first_name">
+                            <input matInput type="text" placeholder="First Name" name="fname" required  [(ngModel)]="first_name" #fnameField='ngModel' [class.is-invalid]='fnameField.invalid'>
+                            <small [class.d-none]='fnameField.valid || fnameField.untouched' class='text-danger'>Is required</small>
                           </mat-form-field>
                           
 
@@ -25,7 +27,8 @@
                                 <div class="col-md-6">
                           <mat-form-field appearance="outline">
                                 <mat-label>LastName</mat-label>
-                                <input matInput type="text" placeholder="lastName" name="lastName" required  [(ngModel)]="last_name">
+                                <input matInput type="text" placeholder="Last Name" name="lname" required  [(ngModel)]="last_name" #lnameField='ngModel'  [class.is-invalid]='lnameField.invalid'>
+                                <small [class.d-none]='lnameField.valid || lnameField.untouched' class='text-danger'> Is required</small>
                               </mat-form-field>
                               </div>
                             </div>
@@ -36,13 +39,15 @@
                        <div class="col-md-6">
                             <mat-form-field appearance="outline">
                                     <mat-label>Email</mat-label>
-                                    <input matInput type="email" placeholder="Email" name="email" required  [(ngModel)]="email">
+                                    <input matInput type="email" placeholder="Email" name="email" required  [(ngModel)]="email" #emailField='ngModel' email [class.is-invalid]='emailField.invalid'>
+                                    <small [class.d-none]='emailField.valid || emailField.untouched' class='text-danger'> Enter Valid Email</small>
                                   </mat-form-field>
                                 </div>
                         <div class="col-md-6">
                         <mat-form-field appearance="outline">
                             <mat-label>Phone Number</mat-label>
-                            <input matInput type="text" placeholder="Mobile" name="phoneNumber" required  [(ngModel)]="mobile_no">
+                            <input matInput type="text" placeholder="Mobile" name="pno" required  [(ngModel)]="mobile_no" #pnoField='ngModel' pattern="[7-9]{1}[0-9]{9}"  [class.is-invalid]='pnoField.invalid'>
+                            <small [class.d-none]='pnoField.valid || pnoField.untouched' class='text-danger'>Enter valid mobile number</small>
                             <mat-icon matSuffix>phone</mat-icon>
                         </mat-form-field>
                         </div>
@@ -53,14 +58,16 @@
                         <div class="col-md-6">
                                 <mat-form-field appearance="outline">
                                     <mat-label>House No</mat-label>
-                                    <input matInput type="text" placeholder="house_no" name="house_no" required  [(ngModel)]="house_no">
+                                    <input matInput type="text" placeholder="House NUmber" name="hno" required  [(ngModel)]="house_no" #hnoField='ngModel' [class.is-invalid]='hnoField.invalid'>
+                                    <small [class.d-none]='hnoField.valid || hnoField.untouched' class='text-danger'>is required</small>
                                   </mat-form-field>
                                   
                                </div>
                                <div class="col-md-6">
                                     <mat-form-field appearance="outline">
                                         <mat-label>Street</mat-label>
-                                        <input matInput type="text" placeholder="street" name="street" required  [(ngModel)]="street">
+                                        <input matInput type="text" placeholder="street" name="street" required  [(ngModel)]="street" #streetField='ngModel'  [class.is-invalid]='streetField.invalid'>
+                                        <small [class.d-none]='streetField.valid || streetField.untouched' class='text-danger'>is required</small>
                                       </mat-form-field>
                                       
                                    </div>
@@ -70,14 +77,17 @@
                         <div class="col-md-6">
                                 <mat-form-field appearance="outline">
                                     <mat-label>District</mat-label>
-                                    <input matInput type="text" placeholder="district" name="district"  [(ngModel)]="district">
+                                    <input matInput type="text" placeholder="District" name="district"  [(ngModel)]="district" #districtField='ngModel' required [class.is-invalid]='districtField.invalid' >
+                                    <small [class.d-none]='districtField.valid || districtField.untouched' class='text-danger'> Is required</small>
                                   </mat-form-field>
                                   
                                </div>
                                <div class="col-md-6">
                                     <mat-form-field appearance="outline">
                                         <mat-label>State</mat-label>
-                                        <input matInput type="text" placeholder="state" name="state" required  [(ngModel)]="state">
+                                        <input matInput type="text" placeholder="state" name="state" required  [(ngModel)]="state" #stateField='ngModel'[class.is-invalid]='stateField.invalid'>
+                                       
+                                        <small [class.d-none]='stateField.valid || stateField.untouched' class='text-danger'>Is required</small>
                                       </mat-form-field>
                                       
                                    </div>
@@ -88,14 +98,16 @@
                         <div class="col-md-6">
                                 <mat-form-field appearance="outline">
                                     <mat-label>Pancard</mat-label>
-                                    <input matInput type="text" placeholder="pan_card" name="pan_card" required  [(ngModel)]="pan_card">
+                                    <input matInput type="text" placeholder="panCard" name="pancard" required  [(ngModel)]="pan_card" #pancardField='ngModel'  [class.is-invalid]='pancardField.invalid' maxlength="10"  minlength="10" >
+                                    <small [class.d-none]='pancardField.valid || pancardField.untouched' class='text-danger'> Enter Valid Pan Number</small>
                                   </mat-form-field>
                                   
                                </div>
                                <div class="col-md-6">
                                     <mat-form-field appearance="outline">
                                         <mat-label>Passport</mat-label>
-                                        <input matInput  type="text" placeholder="passport" name="passport"  [(ngModel)]="passport">
+                                        <input matInput  type="text" placeholder="passport" name="passport"  [(ngModel)]="passport" #passportField='ngModel' required [class.is-invalid]='passportField.invalid' maxlength="8"  minlength="8" >
+                                        <small [class.d-none]='passportField.valid || passportField.untouched' class='text-danger'> Enter Valid Passport Number</small>
                                       </mat-form-field>
                                       
                                    </div>
@@ -106,7 +118,8 @@
                         <div class="col-md-6">
                              <mat-form-field appearance="outline">
                                  <mat-label>Aadhar Number</mat-label>
-                                 <input matInput type="number" placeholder="Aadhar Number" name="aadharNumber" required  [(ngModel)]="aadhar_card">
+                                 <input matInput type="number" placeholder="Aadhar Number" name="aadhar" required  [(ngModel)]="aadhar_card"  #aadharField='ngModel' required [class.is-invalid]='aadharField.invalid' pattern="[0-9]{12}" >
+                                 <small [class.d-none]='aadharField.valid || aadharField.untouched' class='text-danger'>Enter Valid Aadhar Number</small>
                                </mat-form-field>
                                
                             </div>
@@ -117,18 +130,20 @@
                             <div class="col-md-6">
                                     <mat-form-field appearance="outline">
                                         <mat-label>Employee Designation</mat-label>
-                                        <input matInput type="text" placeholder="employee_designation" name="employee_designation" required  [(ngModel)]="employee_designation">
+                                        <input matInput type="text" placeholder="employee Designation" name="employeed" required  [(ngModel)]="employee_designation" #employeedField='ngModel'  [class.is-invalid]='employeedField.invalid'   >
+                                        <small [class.d-none]='employeedField.valid || employeedField.untouched' class='text-danger'> Is required</small>
                                       </mat-form-field>
                                       
                                    </div>
     
                        </div>
 
-                       <mat-checkbox>I agree to Business Bank's Terms and Conditions</mat-checkbox>
+                       <mat-checkbox >I agree to Business Bank's Terms and Conditions</mat-checkbox>
+                       <!-- <input type="checkbox" name="active" ngModel required>I agree to Business Bank's Terms and Conditions -->
           
                    <mat-card-actions>
-                        <button mat-raised-button color="primary" type="submit">Register</button>
-                        <a mat-raised-button routerLink="">Add Account</a>
+                        <button mat-raised-button color="primary" type="submit" >Register</button>
+                        <!-- <a mat-raised-button routerLink="">Add Account</a> -->
                       </mat-card-actions>
                     </mat-card-content>
     </form>

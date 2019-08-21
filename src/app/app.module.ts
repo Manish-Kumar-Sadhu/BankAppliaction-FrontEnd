@@ -17,10 +17,11 @@ import { ChangePasswordComponent } from './common/change-password/change-passwor
 import { SideNavComponent } from './common/side-nav/side-nav.component';
 import { AccountsComponent } from './customer-components/accounts/accounts.component';
 import { AboutComponent } from './common/about/about.component';
-import { TransferComponent } from './transfer/transfer.component';
+import { TransactionSummaryComponent } from './transaction-summary/transaction-summary.component';
 import { RegisterComponent } from './register/register.component';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
-import { TransactionSummaryComponent } from './transaction-summary/transaction-summary.component';
+import { TransferComponent } from './transfer/transfer.component';
+
 @NgModule({
   declarations: [
     AppComponent,
