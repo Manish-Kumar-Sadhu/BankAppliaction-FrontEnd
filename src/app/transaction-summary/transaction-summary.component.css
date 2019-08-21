@@ -1,0 +1,15 @@
+mat-tab-group{
+    color: black;
+    text-align: left;
+}
+mat-card{
+    color: black;
+    width:50rem;
+    /* justify-content: center; */
+    left: 15rem;
+    top: 3rem;
+    cursor: text;
+}
+table {
+    width: 100%;
+  }
