@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpRequest , HttpResponse , HttpClient, HttpHandler , HttpEvent  , HttpInterceptor, HttpHeaders, HttpParams } from '@angular/common/http';
+import {  HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-
+import { config } from '../config';
 
 
 @Injectable({
@@ -11,21 +11,38 @@ import { map } from 'rxjs/operators';
 export class AuthenticationService {
 
   constructor(private http: HttpClient) { 
-    // this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
   }
-  private baseUrl:String = 'http://localhost:8080';
+
   private headers = new HttpHeaders({'Content-Type':'application/json'});
 
-  login(email , password) {
+  // to distinguish the customer and bank user 
+  // @params : intial home url
+  userAuth(userType){
     
-    return this.http.post<any>(this.baseUrl+'/auth/login' , JSON.stringify({'email':email , 'password':password , 'type':'customer'}) , {headers:this.headers} )
+    console.log(userType)
+    if(!localStorage.getItem('userType')){
+      localStorage.setItem('userType' , userType)
+    } else {
+      localStorage.removeItem('userType');
+      localStorage.setItem('userType' , userType)
+    }
+  }
+
+
+  // accessing login api
+  // @params  email ,password ; binding params :usertype
+
+  login(email , password) {
+    let userType = localStorage.getItem('userType');
+    return this.http.post<any>(config.BASE_URL+'/auth/login' , JSON.stringify({'email':email , 'password':password , 'type':userType}) , {headers:this.headers} )
     .pipe( map(user => {
-        localStorage.setItem('isLoggedIn' , 'true');
+        // localStorage.setItem('isLoggedIn' , 'true');
         localStorage.setItem('currentUser', JSON.stringify(user));
         return user;
       })
     )
   }
+
 
   logout() {
     // remove user from local storage and set current user to null

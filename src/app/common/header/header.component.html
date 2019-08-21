@@ -13,14 +13,13 @@
         <!-- <a mat-button [routerLink]="'/contacts'"> Contacts </a> -->
         <button mat-button [routerLink]="'/contacts'">  Contact </button>
         <button mat-button [routerLink]="'/about'"> About </button>
+        <button mat-button [routerLink]="'/register'"> Register </button>
         <span class="menu-spacer"></span>
         <span class="menu-spacer"></span>
         <span class="menu-spacer"></span>
-        
-            <button   mat-button [routerLink]="'/login'"> Login </button>
-        
+            <button  *ngIf="!isLoggedIn;"  mat-button [routerLink]="'/login'"> Login </button>
+            <button mat-button *ngIf="isLoggedIn;"  (click)="logout()"> Logout </button>
           
-            <button mat-button (click)="logout()"> Logout </button>
           
           
         <!-- <button mat-button [routerLink]="'/login'"> Login </button> -->

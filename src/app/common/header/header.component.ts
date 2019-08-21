@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  public isLoggedIn = localStorage.getItem('isLoggedIn');
+  public isLoggedIn;
   public currentUser;
   private LOGO = require("../../../assets/inguz.png");
   constructor(private router: Router, private _authenticationService: AuthenticationService) { 
@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.isLoggedIn)
+    this.isLoggedIn = localStorage.getItem('isLoggedIn');
   }
 
   logout(){
