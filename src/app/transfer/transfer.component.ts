@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BankService } from '../shared_services/bank.service';
 
 @Component({
   selector: 'app-transfer',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./transfer.component.css']
 })
 export class TransferComponent implements OnInit {
-  selected = 'XXXXX';
-  constructor() { }
+  selectedAccount = '';
+  public accountTypes=[];
+  constructor(private _bankService: BankService) { }
 
   ngOnInit() {
+    this._bankService.getAccountTypes().subscribe((accountTypes)=>{
+      this.accountTypes = JSON.parse(JSON.stringify(accountTypes));
+      console.log(this.accountTypes)
+    });
+  
   }
+
 
 }
