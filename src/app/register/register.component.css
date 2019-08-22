@@ -1,0 +1,24 @@
+mat-form-field {
+    width: 33%;
+    padding: 0.5%
+  }
+
+  mat-card{
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 2%;
+    margin-bottom: 4%;
+}
+
+
+  mat-divider{
+      padding-top: 0.5%
+  }
+
+  input[matInput]{
+    font-weight: bolder;
+    color: #8392e7;
+  }
+  input[disabled]{
+    cursor: unset;
+  }

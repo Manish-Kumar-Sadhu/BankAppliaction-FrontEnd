@@ -18,7 +18,6 @@ export class AuthenticationService {
   // to distinguish the customer and bank user 
   // @params : intial home url
   userAuth(userType){
-    
     console.log(userType)
     if(!localStorage.getItem('userType')){
       localStorage.setItem('userType' , userType)
