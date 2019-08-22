@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {  HttpClient, HttpHeaders} from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { config } from '../config';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -15,7 +16,7 @@ export class CustomerService {
   private headers = new HttpHeaders({'Content-Type':'application/json'});
 
   getCustomerDetails(id){
-    return this.http.get(config.BASE_URL+'/customer/find'+id , {headers:this.headers})
+    return this.http.get(config.BASE_URL+'/customer/find/'+id , {headers:this.headers})
       .pipe( map( customerDetails =>{
           return customerDetails;
       } , error =>{
@@ -24,8 +25,14 @@ export class CustomerService {
       )
   }
 
-  getCustomerAccounts(id){
-    
+  getCustomerAccounts(customer_id){
+    return this.http.get<Observable<any>>(config.BASE_URL+'/account/list/'+customer_id , {headers:this.headers})
+      .pipe( map( customerAccounts =>{
+          return customerAccounts;
+      } , error =>{
+        console.log(error);
+      })
+      )
   }
 
   getCustomerTransactions(id){

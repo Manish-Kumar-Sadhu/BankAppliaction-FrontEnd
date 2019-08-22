@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomerService } from 'src/app/shared_services/customer.service';
 
 @Component({
   selector: 'app-accounts',
@@ -7,28 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountsComponent implements OnInit {
 
-  constructor() { }
+  constructor( private _customerService: CustomerService) { }
 
-  public accountLists= [
-    {
-      "owner":"Manish Sadhu",
-      "account_number":6667778889,
-      "created_date":'12/12/12',
-      "account_type":'savings',
-      "balance":25000,
-      "registered_mobile":9133550113
-    },
-    {
-      "owner":"Manish Sadhu",
-      "account_number":9998887776,
-      "created_date":'20/09/1998',
-      "account_type":'Current',
-      "balance":5000,
-      "registered_mobile":8885910066
-    }
-  ]
+  
+
+  private accounts;
+  private customerData = JSON.parse(localStorage.getItem("currentUser"));
 
   ngOnInit() {
+    // console.log(this.customerData.customer_id);
+    
+    this._customerService.getCustomerAccounts(this.customerData.customer_id)
+      .subscribe(
+          (customerAccounts) => {this.accounts = customerAccounts},
+          (error) => {console.log(error)}
+      )
   }
 
 }

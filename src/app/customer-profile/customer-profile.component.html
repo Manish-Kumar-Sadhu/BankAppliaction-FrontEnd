@@ -1,7 +1,7 @@
 
 <mat-card class="profile-card" >
     <mat-card-header>
-      <mat-card-title>Customer Details</mat-card-title>
+      <mat-card-title> Your Details With Bank</mat-card-title>
     </mat-card-header>
   <mat-divider></mat-divider> <br>
     <form #RegisterForm="ngForm" (ngSubmit)="processRegisterForm()">
@@ -14,10 +14,25 @@
               <mat-label>Last  Name</mat-label>
               <input matInput value={{userDetails.last_name}} name="last_name" type="text" required [disabled]="!enableEdit" >
             </mat-form-field>
-            <mat-form-field appearance="outline">
+            <mat-form-field  appearance="outline">
               <mat-label>Email</mat-label>
               <input matInput value={{userDetails.email}} name="email" type="text" required [disabled]="!enableEdit" >
             </mat-form-field>
+            <div *ngIf="userType === 'bank'">
+                <mat-form-field  appearance="outline">
+                    <mat-label>Employee ID</mat-label>
+                    <input matInput value={{userDetails.employee_id}}  name="employee_id" type="text" required [disabled]="!enableEdit" >
+                </mat-form-field>
+                <mat-form-field  appearance="outline">
+                    <mat-label>Employee Designation</mat-label>
+                    <input matInput value={{userDetails.employee_role}}  name="employee_role" type="text" required [disabled]="!enableEdit" >
+                </mat-form-field>
+                <mat-form-field  appearance="outline">
+                    <mat-label>Job Start Date</mat-label>
+                    <input matInput value={{userDetails.job_start_date}}  name="job_start_date" type="text" required [disabled]="!enableEdit" >
+                </mat-form-field>
+  
+            </div>
             <mat-form-field appearance="outline">
               <mat-label>Mobile No.</mat-label>
               <input matInput value={{userDetails.mobile_no}} name="mobile_no" type="text" required [disabled]="!enableEdit" >
@@ -26,7 +41,7 @@
             <br>
             <mat-form-field appearance="outline">
                 <mat-label>Aadhar Card</mat-label>
-                <input matInput value={{userDetails.aadhar_card}} name="aadhar_card" type="text" required [disabled]="!enableEdit" >
+                <input matInput value={{userDetails.aadhaar_card}} name="aadhaar_card" type="text" required [disabled]="!enableEdit" >
             </mat-form-field> 
             <mat-form-field appearance="outline">
                 <mat-label>Pan Card</mat-label>
@@ -54,6 +69,7 @@
                   <mat-label>State</mat-label>
                   <input matInput value={{userDetails.state}} name="state" type="text" required [disabled]="!enableEdit" >
               </mat-form-field>
+
         </mat-card-content>
         <mat-card-actions align="center">
           <button mat-flat-button color="primary" type="button" [hidden]="toggleEditSaveButton" (click)="enableEditing() ">Edit<mat-icon>edit</mat-icon></button>

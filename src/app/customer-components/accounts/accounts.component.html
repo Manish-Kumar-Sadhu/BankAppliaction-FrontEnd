@@ -1,13 +1,18 @@
+
+<mat-card>
+        <b> Your Bank Accounts </b>
+</mat-card>
+<br>
 <!-- accordions  -->
 <mat-accordion multi=true>
     <mat-expansion-panel
-    *ngFor="let account of accountLists; let i=index"
+    *ngFor="let account of accounts; let i=index"
     >
     <mat-expansion-panel-header>
         <mat-panel-title>{{i+1}}</mat-panel-title>    
-        <mat-panel-title><b>Account holder :</b>{{ account.owner }}</mat-panel-title>    
+        <mat-panel-title><b>Account holder :</b>{{ customerData.first_name +" "+ customerData.last_name }}</mat-panel-title>    
         <mat-panel-description>
-            <b> Account no : </b> {{ account.account_number }}
+            <b> Account no : </b> {{ account.account_no }}
         </mat-panel-description>
         <!-- TODO:  fill as may details as possible-->
     </mat-expansion-panel-header>
@@ -15,9 +20,9 @@
     <!-- TODO: improve the data presentation -->
     <pre>
         Account Type : {{account.account_type}} 
-        Balance:{{account.balance}}                        
-        Created Date:{{account.created_date}}
-        Registered Mobile : {{account.registered_mobile}}
+        Balance:{{account.balance | currency:'INR'}}                        
+        Created Date:{{account.creation_date | date }}
+        Registered Mobile : {{customerData.mobile_no}}
         Other 
     </pre>
     <mat-action-row>

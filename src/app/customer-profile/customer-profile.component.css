@@ -6,4 +6,11 @@ mat-form-field {
   mat-divider{
       padding-top: 0.5%
   }
-  
+
+  input[matInput]{
+    font-weight: bolder;
+    color: #8392e7;
+  }
+  input[disabled]{
+    cursor: unset;
+  }
