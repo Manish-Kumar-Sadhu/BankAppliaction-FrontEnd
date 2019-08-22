@@ -21,6 +21,9 @@ import { TransferComponent } from './transfer/transfer.component';
 import { RegisterComponent } from './register/register.component';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { TransactionSummaryComponent } from './transaction-summary/transaction-summary.component';
+import { MainpageComponent } from './models/mainpage/mainpage.component';
+import { ContactComponent } from './common/contact/contact.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +39,9 @@ import { TransactionSummaryComponent } from './transaction-summary/transaction-s
     RegisterComponent,
     CustomerProfileComponent,
     TransferComponent,
-    TransactionSummaryComponent
+    TransactionSummaryComponent,
+    MainpageComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,

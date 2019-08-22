@@ -3,6 +3,7 @@ mat-tab-group{
     text-align: left;
 }
 mat-card{
+    font-size: 10px;
     color: black;
     width:50rem;
     /* justify-content: center; */

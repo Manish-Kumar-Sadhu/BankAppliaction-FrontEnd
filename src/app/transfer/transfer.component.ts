@@ -12,10 +12,10 @@ export class TransferComponent implements OnInit {
   constructor(private _bankService: BankService) { }
 
   ngOnInit() {
-    this._bankService.getAccountTypes().subscribe((accountTypes)=>{
-      this.accountTypes = JSON.parse(JSON.stringify(accountTypes));
-      console.log(this.accountTypes)
-    });
+    // this._bankService.getAccountTypes().subscribe((accountTypes)=>{
+    //   // this.accountTypes = JSON.parse(JSON.stringify(accountTypes));
+    //   console.log(this.accountTypes)
+    // });
   
   }
   onSubmit(){

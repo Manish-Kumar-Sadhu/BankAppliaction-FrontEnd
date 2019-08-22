@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './common/about/about.component';
 import { RegisterComponent } from './register/register.component';
 import { TransferComponent } from './transfer/transfer.component';
+import { ContactComponent } from './common/contact/contact.component';
 
 
 
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path:'login' , component:LoginComponent},
   {path:'register' , component:RegisterComponent},
   {path:'about' , component:AboutComponent},
+  {path:'contacts',component:ContactComponent},
   {path:'**' ,  component:PagenotfoundComponent},
   
 
