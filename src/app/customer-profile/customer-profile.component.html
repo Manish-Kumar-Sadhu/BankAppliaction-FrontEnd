@@ -8,15 +8,18 @@
         <mat-card-content>
             <mat-form-field appearance="outline">
               <mat-label>  First Name</mat-label>
-              <input matInput value={{userDetails.first_name}} name="first_name" type="text" required [disabled]="!enableEdit" >
+              <input matInput value={{userDetails.first_name}} name="first_name" type="text" required [disabled]="!enableEdit" placeholder="First Name"  [(ngModel)]="first_name" #first_nameField='ngModel' [class.is-invalid]='first_nameField.invalid'>
+              <small [class.d-none]='first_nameField.valid || first_nameField.untouched' class='text-danger'>Is required</small >
             </mat-form-field>
             <mat-form-field appearance="outline">
               <mat-label>Last  Name</mat-label>
-              <input matInput value={{userDetails.last_name}} name="last_name" type="text" required [disabled]="!enableEdit" >
+              <input matInput value={{userDetails.last_name}} name="last_name" type="text" required [disabled]="!enableEdit" placeholder="Last Name"   [(ngModel)]="last_name" #last_nameField='ngModel'  [class.is-invalid]='last_nameField.invalid'>
+              <small [class.d-none]='last_nameField.valid || last_nameField.untouched' class='text-danger'> Is required</small>  
             </mat-form-field>
             <mat-form-field  appearance="outline">
               <mat-label>Email</mat-label>
-              <input matInput value={{userDetails.email}} name="email" type="text" required [disabled]="!enableEdit" >
+              <input matInput value={{userDetails.email}} name="email" type="text" required [disabled]="!enableEdit" placeholder="Email" [(ngModel)]="email" #emailField='ngModel' email [class.is-invalid]='emailField.invalid'  >
+              <small [class.d-none]='emailField.valid || emailField.untouched' class='text-danger'> Enter Valid Email</small>>
             </mat-form-field>
             <div *ngIf="userType === 'bank'">
                 <mat-form-field  appearance="outline">
@@ -35,39 +38,48 @@
             </div>
             <mat-form-field appearance="outline">
               <mat-label>Mobile No.</mat-label>
-              <input matInput value={{userDetails.mobile_no}} name="mobile_no" type="text" required [disabled]="!enableEdit" >
+              <input matInput value={{userDetails.mobile_no}} name="mobile_no" type="text" required [disabled]="!enableEdit"  placeholder="Mobile"    [(ngModel)]="mobile_no" #mobile_noField='ngModel' pattern="[7-9]{1}[0-9]{9}"  [class.is-invalid]='mobile_noField.invalid'>
+              <small [class.d-none]='mobile_noField.valid || mobile_noField.untouched' class='text-danger'>Enter valid mobile number</small>  >
             </mat-form-field>
             <mat-divider [inset]="true"></mat-divider>
             <br>
             <mat-form-field appearance="outline">
                 <mat-label>Aadhar Card</mat-label>
-                <input matInput value={{userDetails.aadhaar_card}} name="aadhaar_card" type="text" required [disabled]="!enableEdit" >
+                <input matInput value={{userDetails.aadhaar_card}}  type="text" required [disabled]="!enableEdit"  placeholder="Aadhar Number" name="aadhar_card"  [(ngModel)]="aadhar_card"  #aadhar_cardField='ngModel' required [class.is-invalid]='aadhar_cardField.invalid' pattern="[1-9]{1}[0-9]{11}" >
+                <small [class.d-none]='aadhar_cardField.valid || aadhar_cardField.untouched' class='text-danger'>Enter Valid Aadhar Number</small> >
             </mat-form-field> 
             <mat-form-field appearance="outline">
                 <mat-label>Pan Card</mat-label>
-                <input matInput value={{userDetails.pan_card}} name="pan_card" type="text" required [disabled]="!enableEdit" >
+                <input matInput value={{userDetails.pan_card}} name="pan_card" type="text" required [disabled]="!enableEdit" placeholder="pan card"   [(ngModel)]="pan_card" #pan_cardField='ngModel'  [class.is-invalid]='pan_cardField.invalid' maxlength="10"  minlength="10" >
+                <small [class.d-none]='pan_cardField.valid || pan_cardField.untouched' class='text-danger'> Enter Valid Pan Number</small> >
               </mat-form-field>
               <mat-form-field appearance="outline">
                   <mat-label>Passport</mat-label>
-                  <input matInput value={{userDetails.passport}} name="passport" type="text" required [disabled]="!enableEdit" >
+                  <input matInput value={{userDetails.passport}}  type="text"  [disabled]="!enableEdit"  placeholder="passport" name="passport"  [(ngModel)]="passport" #passportField='ngModel' required [class.is-invalid]='passportField.invalid' maxlength="8"  minlength="8" >
+                  <small [class.d-none]='passportField.valid || passportField.untouched' class='text-danger'> Enter Valid Passport Number</small>>
               </mat-form-field>
               <mat-divider [inset]="true"></mat-divider>
               <br>
               <mat-form-field appearance="outline">
                   <mat-label>Address</mat-label>
-                  <input matInput value={{userDetails.house_no}} name="house_no" type="text" required [disabled]="!enableEdit" >
+                  <input matInput value={{userDetails.house_no}}  type="text"  [disabled]="!enableEdit" placeholder="House Number" name="house_no" required  [(ngModel)]="house_no" #house_noField='ngModel' [class.is-invalid]='house_noField.invalid'>
+                  <small [class.d-none]='house_noField.valid || house_noField.untouched' class='text-danger'>is required</small>  >
               </mat-form-field>
               <mat-form-field appearance="outline">
                   <mat-label>Street</mat-label>
-                  <input matInput value={{userDetails.street}} name="street" type="text" required [disabled]="!enableEdit" >
+                  <input matInput value={{userDetails.street}}  type="text"  [disabled]="!enableEdit" placeholder="street" name="street" required  [(ngModel)]="street" #streetField='ngModel'  [class.is-invalid]='streetField.invalid'>
+                  <small [class.d-none]='streetField.valid || streetField.untouched' class='text-danger'>is required</small> >
               </mat-form-field>
               <mat-form-field appearance="outline">
                   <mat-label>District</mat-label>
-                  <input matInput value={{userDetails.district}} name="district" type="text" required [disabled]="!enableEdit" >
+                  <input matInput value={{userDetails.district}}  type="text"  [disabled]="!enableEdit" placeholder="District" name="district"  [(ngModel)]="district" #districtField='ngModel' required [class.is-invalid]='districtField.invalid' >
+                  <small [class.d-none]='districtField.valid || districtField.untouched' class='text-danger'> Is required</small> 
               </mat-form-field>
               <mat-form-field appearance="outline">
                   <mat-label>State</mat-label>
-                  <input matInput value={{userDetails.state}} name="state" type="text" required [disabled]="!enableEdit" >
+                  <input matInput value={{userDetails.state}} [disabled]="!enableEdit"  placeholder="state" name="state" required  [(ngModel)]="state" #stateField='ngModel'[class.is-invalid]='stateField.invalid'>
+                                       
+                  <small [class.d-none]='stateField.valid || stateField.untouched' class='text-danger'>Is required</small>  >
               </mat-form-field>
 
         </mat-card-content>
