@@ -35,8 +35,6 @@ export class AuthenticationService {
     let userType = localStorage.getItem('userType');
     return this.http.post<any>(config.BASE_URL+'/auth/login' , JSON.stringify({'email':email , 'password':password , 'type':userType}) , {headers:this.headers} )
     .pipe( map(user => {
-        // localStorage.setItem('isLoggedIn' , 'true');
-        localStorage.setItem('currentUser', JSON.stringify(user));
         return user;
       })
     )
@@ -46,6 +44,7 @@ export class AuthenticationService {
   logout() {
     // remove user from local storage and set current user to null
     localStorage.removeItem('currentUser');
+    localStorage.removeItem('isLoggedIn')
     // this.currentUserSubject.next(null);
 }
 

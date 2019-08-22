@@ -35,6 +35,16 @@ export class CustomerService {
       )
   }
 
+  createCustomer(customer): Observable<any>{
+    return this.http.post<any>(config.BASE_URL+'/customer/save', JSON.stringify(customer) ,  {headers:this.headers})
+      .pipe( map( customer =>{
+        return customer;
+      } , error => {
+        console.log(error);
+      })
+      )
+  }
+
   getCustomerTransactions(id){
 
   }
