@@ -26,7 +26,7 @@ export class CustomerService {
   }
 
   getCustomerAccounts(customer_id){
-    return this.http.get<Observable<any>>(config.BASE_URL+'/account/list/'+customer_id , {headers:this.headers})
+    return this.http.get(config.BASE_URL+'/account/list/'+customer_id , {headers:this.headers})
       .pipe( map( customerAccounts =>{
           return customerAccounts;
       } , error =>{

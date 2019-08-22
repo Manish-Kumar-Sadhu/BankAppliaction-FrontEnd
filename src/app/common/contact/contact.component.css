@@ -1,10 +1,9 @@
 mat-card{
     color: black;
-    width:75rem;
-    height:25rem;
-    left: 15rem;
-    top: 3rem;
+    width:75%;
+    text-align: center;
     cursor: text;
+    margin: 0 auto;
 }
 mat-card-header{
     color:indigo;
@@ -12,4 +11,8 @@ mat-card-header{
 }
 mat-panel-title{
     color:royalblue;
+}
+
+mat-expansion-panel{
+    margin-top: 1%
 }
