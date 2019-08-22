@@ -8,12 +8,14 @@ import { RegisterComponent } from './register/register.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { ContactComponent } from './common/contact/contact.component';
 
+import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 
 
 const routes: Routes = [
   {path:'' , component:HomeComponent },
   {path:'transfer',component:TransferComponent},
   {path:'login' , component:LoginComponent},
+  {path:'customerprofile',component:CustomerProfileComponent},
   {path:'register' , component:RegisterComponent},
   {path:'about' , component:AboutComponent},
   {path:'contacts',component:ContactComponent},

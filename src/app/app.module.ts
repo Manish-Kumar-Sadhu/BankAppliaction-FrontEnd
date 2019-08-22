@@ -12,17 +12,16 @@ import { LoginComponent } from './common/login/login.component';
 import { PagenotfoundComponent } from './common/pagenotfound/pagenotfound.component';
 import { HomeComponent } from './home/home.component';
 import { CustomMaterialModule } from './core/CustomMaterialModule ';
-import { BankOpsComponent } from './bank-components/bank-ops/bank-ops.component';
 import { ChangePasswordComponent } from './common/change-password/change-password.component';
 import { SideNavComponent } from './common/side-nav/side-nav.component';
 import { AccountsComponent } from './customer-components/accounts/accounts.component';
 import { AboutComponent } from './common/about/about.component';
-import { TransferComponent } from './transfer/transfer.component';
+import { TransactionSummaryComponent } from './transaction-summary/transaction-summary.component';
 import { RegisterComponent } from './register/register.component';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
-import { TransactionSummaryComponent } from './transaction-summary/transaction-summary.component';
 import { MainpageComponent } from './models/mainpage/mainpage.component';
 import { ContactComponent } from './common/contact/contact.component';
+import { TransferComponent } from './transfer/transfer.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +30,6 @@ import { ContactComponent } from './common/contact/contact.component';
     LoginComponent,
     PagenotfoundComponent,
     HomeComponent,
-    BankOpsComponent,
     ChangePasswordComponent,
     SideNavComponent,
     AccountsComponent,

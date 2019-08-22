@@ -1,8 +1,7 @@
 <mat-sidenav-container *ngIf="isLoggedIn">
-        
     <!-- mode can be push | side | over -->
     <mat-sidenav #sideNav mode="side" [(opened)]="opened" >
-        <h4>#Name Here</h4>
+        <h4>Actions Menu</h4>
         <mat-divider style="color: rgb(255, 255, 255)"></mat-divider>
         <mat-nav-list>
             <a mat-list-item (click)="displayComponent(item)"  *ngFor="let item of nav_items">{{item}} </a>
@@ -13,12 +12,13 @@
                 <mat-icon *ngIf="opened; else closed;">keyboard_arrow_left</mat-icon>
                 <ng-template #closed><mat-icon>keyboard_arrow_right</mat-icon></ng-template>
             </button>
-            <p *ngIf="!comp; else selectedComp">Display : Dashboard</p>
+            <p *ngIf="!comp; else selectedComp">Display : Dashboard {{userType}}</p>
             <!-- TODO: add icon for each nav item -->
             <ng-template #selectedComp> <p>Display : {{comp}}</p> </ng-template>
+            <app-customer-profile #selectedComp *ngIf="comp==='Profile'" ></app-customer-profile>
             <app-change-password *ngIf="comp==='ChangePassword'"></app-change-password>
             <app-accounts *ngIf="comp==='Accounts'"></app-accounts>
             <app-transfer *ngIf="comp==='Transfer'"></app-transfer>
-            <app-transaction-summary *ngIf="comp==='Transaction Summary'"></app-transaction-summary>
+            <app-transaction-summary *ngIf="comp==='TransactionSummary'"></app-transaction-summary>
     </mat-sidenav-content>
 </mat-sidenav-container>

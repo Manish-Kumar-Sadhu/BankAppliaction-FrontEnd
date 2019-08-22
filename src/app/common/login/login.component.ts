@@ -26,21 +26,21 @@ export class LoginComponent implements OnInit {
 
   processLoginForm(){
     localStorage.setItem('isLoggedIn' , 'true');
-    console.log(localStorage.getItem('userType'));
-    localStorage.setItem('userType' , localStorage.getItem('userType'));
-    this.router.navigate(['/'])
+    // console.log(localStorage.getItem('userType'));
+    // localStorage.setItem('userType' , localStorage.getItem('userType'));
+    // this.router.navigate(['/'])
     console.log(this.email+" "+this.password);
-    // this.authenticationService.login(this.email , this.password)
-    //     .pipe(first())
-    //     .subscribe(
-    //       data => {
-    //         console.log(data);
-    //         console.log("successgul");
-    //         this.router.navigate(['/'])
-    //       },
-    //        error => {
-    //          console.log("Login failed & error is "+error.message);
-    //         }
-    //     )
+    this.authenticationService.login(this.email , this.password)
+        .pipe(first())
+        .subscribe(
+          data => {
+            console.log(data);
+            console.log("successgul");
+            this.router.navigate(['/'])
+          },
+           error => {
+             console.log("Login failed & error is "+error.message);
+            }
+        )
   }
 }
