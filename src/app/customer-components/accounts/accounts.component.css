@@ -3,3 +3,7 @@ mat-card{
     width: 35%;
     margin: 0 auto;
 }
+
+mat-expansion-panel{
+    margin-top: 1%
+}

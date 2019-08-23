@@ -1,21 +1,25 @@
-<mat-sidenav-container *ngIf="isLoggedIn">
+<mat-sidenav-container *ngIf="isLoggedIn" >
     <!-- mode can be push | side | over -->
-    <mat-sidenav #sideNav mode="side" [(opened)]="opened" >
-        <h4>Actions Menu</h4>
+    <mat-sidenav #sideNav mode="side"  [(opened)]="opened" >
+        <h4 style="text-align: center">Actions Menu</h4>
         <mat-divider style="color: rgb(255, 255, 255)"></mat-divider>
         <mat-nav-list>
-            <a mat-list-item (click)="displayComponent(item)"  *ngFor="let item of nav_items">{{item}} </a>
+            <a mat-list-item (click)="displayComponent(item.title)" [ngClass]="{'active': comp === item.title}"  *ngFor="let item of nav_items">  
+                <!-- configure icons here -->
+                <mat-icon  [ngClass]="{'icon': comp === item.title}">{{item.icon}}</mat-icon> 
+                <span style="margin-left:2%">{{item.title}}</span> 
+            </a>
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-            <button mat-mini-fab color="accent" (click)="opened=!opened"  disableRipple>
+            <button mat-mini-fab class="toggleSideNavButton" (click)="opened=!opened"  disableRipple>
                 <mat-icon *ngIf="opened; else closed;">keyboard_arrow_left</mat-icon>
                 <ng-template #closed><mat-icon>keyboard_arrow_right</mat-icon></ng-template>
             </button>
-            <p *ngIf="!comp; else selectedComp">Display : Dashboard {{userType}}</p>
             <!-- TODO: add icon for each nav item -->
-            <ng-template #selectedComp> <p>Display : {{comp}}</p> </ng-template>
-            <app-customer-profile #selectedComp *ngIf="comp==='Profile'" ></app-customer-profile>
+            <!-- <ng-template #selectedComp> <p>Display : {{comp}}</p> </ng-template> -->
+            <app-dashboard *ngIf="comp==='Dashboard'" ></app-dashboard>
+            <app-customer-profile  *ngIf="comp==='Profile'" ></app-customer-profile>
             <app-change-password *ngIf="comp==='ChangePassword'"></app-change-password>
             <app-accounts *ngIf="comp==='Accounts'"></app-accounts>
             <app-transfer *ngIf="comp==='Transfer'"></app-transfer>

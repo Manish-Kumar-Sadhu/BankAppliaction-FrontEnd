@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class CustomerProfileComponent implements OnInit {
 
 // TODO: add alert services
-  userDetails = JSON.parse(localStorage.getItem('currentUser'));
+  private userDetails = JSON.parse(localStorage.getItem('currentUser'));;
   userType = localStorage.getItem('userType');
   toggleEditSaveButton:boolean;
   enableEdit:boolean;
@@ -17,6 +17,8 @@ export class CustomerProfileComponent implements OnInit {
   ngOnInit() {
     this.enableEdit = false;
     this.toggleEditSaveButton = false;
+    // console.log(this.userDetails);
+    this.userDetails = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   enableEditing(){

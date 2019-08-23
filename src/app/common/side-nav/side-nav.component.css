@@ -1,24 +1,37 @@
 
 mat-sidenav-container{
-    height: 90%;
-    background-color: aliceblue;
+    height: 90.2%;
+    background: linear-gradient(to left, #667db6, #0d9be7, #0082c8, #667db6);
+    /* box-sizing: border-box; */
+    
 }
 mat-sidenav {
-    padding: 16px;
-    color: aliceblue;
+    padding: 6px;
+    color: rgb(15, 15, 15);
+    width: 18%;
+    opacity: .77;
+    background-color: #cccccc;
+    background-image: url('https://demos.creative-tim.com/material-dashboard-angular2/assets/img/sidebar-3.jpg');
+    -webkit-tap-highlight-color: transparent;
 }
  mat-sidenav-content{
     padding: 16px;
     color: crimson;
+    z-index: 5;
 }
-mat-sidenav {
-    width: 17%;
-    background-color:#7392db;
+.toggleSideNavButton{
+    background-color: linear-gradient(to right, #e44d26, #f16529); 
+    /* box-shadow: 1px 2px 2px 0px; */
+}
+.icon {
+    margin-right: 3%;
+    color: white;
 }
 
 .active {
-    background-color: chocolate;
-}
-.inactive{
-    background-color:#7392db;
+    background-color:#da22ff; 
+    -webkit-tap-highlight-color: transparent;
+    box-shadow: 0 4px 20px 0px rgba(234, 180, 245, 0.14), 0 7px 10px -5px rgba(244, 67, 54, 0.4);
+    border-radius: 4%;
+    margin-bottom: 2%;
 }

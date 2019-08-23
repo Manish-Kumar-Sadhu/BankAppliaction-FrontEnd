@@ -16,8 +16,8 @@ mat-form-field {
   }
 
   input[matInput]{
-    font-weight: bolder;
-    color: #8392e7;
+    /* font-weight: bolder; */
+    /* color: #8392e7; */
   }
   input[disabled]{
     cursor: unset;

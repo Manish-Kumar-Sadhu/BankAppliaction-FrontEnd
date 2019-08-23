@@ -1,10 +1,18 @@
+mat-card{
+    width:75%;
+    /* text-align: center; */
+    cursor: text;
+    margin: 0 auto;
+    margin-top:1.5%;
+}
+
 mat-form-field {
     width: 33%;
     padding: 1%
   }
 
   mat-divider{
-      padding-top: 0.5%
+      padding-top: 2%
   }
 
   input[matInput]{

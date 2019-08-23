@@ -4,73 +4,79 @@
       <mat-card-title style="text-align: center"> Register Yourself here</mat-card-title>
     </mat-card-header>
     <mat-divider inset="true"></mat-divider><br>
-    <form #RegisterForm="ngForm" (ngSubmit)="processRegisterForm()">
+    <form #RegisterForm="ngForm" autocomplete="false" (ngSubmit)="processRegisterForm(RegisterForm.value)">
         <mat-card-content>
             <mat-form-field appearance="outline">
               <mat-label>  First Name</mat-label>
-              <input matInput  name="first_name" type="text" required placeholder="First Name"  [(ngModel)]="first_name" #first_nameField='ngModel' [class.is-invalid]='first_nameField.invalid'>
-              <small [class.d-none]='first_nameField.valid || first_nameField.untouched' class='text-danger'>Is required</small> 
+              <input matInput  name="first_name" type="text" required  ngModel>
             </mat-form-field>
             <mat-form-field appearance="outline">
               <mat-label>Last  Name</mat-label>
-              <input matInput   type="text" required placeholder="Last Name" name="last_name"  [(ngModel)]="last_name" #last_nameField='ngModel'  [class.is-invalid]='last_nameField.invalid'>
-              <small [class.d-none]='last_nameField.valid || last_nameField.untouched' class='text-danger'> Is required</small> 
+              <input matInput  name="last_name" type="text" required  ngModel>
             </mat-form-field>
             <mat-form-field  appearance="outline">
               <mat-label>Email</mat-label>
-              <input matInput type="email" placeholder="Email" name="email" required  [(ngModel)]="email" #emailField='ngModel' email [class.is-invalid]='emailField.invalid'  >
-              <small [class.d-none]='emailField.valid || emailField.untouched' class='text-danger'> Enter Valid Email</small>
+              <input matInput  name="email" type="text" required  ngModel>
             </mat-form-field>
+            <!-- <div *ngIf="userType === 'bank'">
+                <mat-form-field  appearance="outline">
+                    <mat-label>Employee ID</mat-label>
+                    <input matInput   name="employee_id" type="text" required  >
+                </mat-form-field>
+                <mat-form-field  appearance="outline">
+                    <mat-label>Employee Designation</mat-label>
+                    <input matInput   name="employee_role" type="text" required  >
+                </mat-form-field>
+                <mat-form-field  appearance="outline">
+                    <mat-label>Job Start Date</mat-label>
+                    <input matInput   name="job_start_date" type="text" required  >
+                </mat-form-field>
+            </div> -->
             <mat-form-field appearance="outline">
               <mat-label>Mobile No.</mat-label>
-              <input  matInput type="text" placeholder="Mobile" name="mobile_no" required  [(ngModel)]="mobile_no" #mobile_noField='ngModel' pattern="[7-9]{1}[0-9]{9}"  [class.is-invalid]='mobile_noField.invalid'>
-              <small [class.d-none]='mobile_noField.valid || mobile_noField.untouched' class='text-danger'>Enter valid mobile number</small> 
+              <input matInput  name="mobile_no" type="number" required  ngModel>
             </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput  name="password" type="password" required  ngModel>
+              </mat-form-field>
             <mat-divider [inset]="true"></mat-divider>
             <br>
             <mat-form-field appearance="outline">
                 <mat-label>Aadhar Card</mat-label>
-                <input matInput type="text" placeholder="Aadhar Number" name="aadhar_card" required  [(ngModel)]="aadhar_card"  #aadhar_cardField='ngModel' required [class.is-invalid]='aadhar_cardField.invalid' pattern="[1-9]{1}[0-9]{11}" >
-                <small [class.d-none]='aadhar_cardField.valid || aadhar_cardField.untouched' class='text-danger'>Enter Valid Aadhar Number</small> 
+                <input matInput  name="aadhaar_card" type="number" required  ngModel>
             </mat-form-field> 
             <mat-form-field appearance="outline">
                 <mat-label>Pan Card</mat-label>
-                <input matInput type="text" placeholder="pan card" name="pan_card" required  [(ngModel)]="pan_card" #pan_cardField='ngModel'  [class.is-invalid]='pan_cardField.invalid' maxlength="10"  minlength="10" >
-                <small [class.d-none]='pan_cardField.valid || pan_cardField.untouched' class='text-danger'> Enter Valid Pan Number</small>
+                <input matInput  name="pan_card" type="text" required  ngModel>
               </mat-form-field>
               <mat-form-field appearance="outline">
                   <mat-label>Passport</mat-label>
-                  <input matInput  type="text" placeholder="passport" name="passport"  [(ngModel)]="passport" #passportField='ngModel' required [class.is-invalid]='passportField.invalid' maxlength="8"  minlength="8" >
-                  <small [class.d-none]='passportField.valid || passportField.untouched' class='text-danger'> Enter Valid Passport Number</small>
+                  <input matInput  name="passport" type="text" required  ngModel>
               </mat-form-field>
               <mat-divider [inset]="true"></mat-divider>
               <br>
               <mat-form-field appearance="outline">
                   <mat-label>Address</mat-label>
-                  <input matInput type="text" placeholder="House Number" name="house_no" required  [(ngModel)]="house_no" #house_noField='ngModel' [class.is-invalid]='house_noField.invalid'>
-                  <small [class.d-none]='house_noField.valid || house_noField.untouched' class='text-danger'>is required</small>  
+                  <input matInput  name="house_no" type="text" required  ngModel>
               </mat-form-field>
               <mat-form-field appearance="outline">
                   <mat-label>Street</mat-label>
-                  <input matInput type="text" placeholder="street" name="street" required  [(ngModel)]="street" #streetField='ngModel'  [class.is-invalid]='streetField.invalid'>
-                  <small [class.d-none]='streetField.valid || streetField.untouched' class='text-danger'>is required</small>
+                  <input matInput  name="street" type="text" required  ngModel>
               </mat-form-field>
               <mat-form-field appearance="outline">
                   <mat-label>District</mat-label>
-                  <input   matInput type="text" placeholder="District" name="district"  [(ngModel)]="district" #districtField='ngModel' required [class.is-invalid]='districtField.invalid' >
-                  <small [class.d-none]='districtField.valid || districtField.untouched' class='text-danger'> Is required</small>
+                  <input matInput  name="district" type="text" required  ngModel>
               </mat-form-field>
               <mat-form-field appearance="outline">
                   <mat-label>State</mat-label>
-                  <input matInput type="text" placeholder="state" name="state" required  [(ngModel)]="state" #stateField='ngModel'[class.is-invalid]='stateField.invalid'>
-                                       
-                  <small [class.d-none]='stateField.valid || stateField.untouched' class='text-danger'>Is required</small> 
+                  <input matInput  name="state" type="text" required  ngModel>
               </mat-form-field>
 
         </mat-card-content>
         <mat-card-actions align="center">
           
-          <button mat-flat-button color="primary" type="submit"  >Save</button>
+          <button mat-flat-button color="primary" type="submit" >submit</button>
         </mat-card-actions>        
     </form>
 </mat-card>

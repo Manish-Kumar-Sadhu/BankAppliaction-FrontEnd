@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../shared_services/authentication.service';
+import { CustomerService } from '../shared_services/customer.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -8,13 +10,23 @@ import { AuthenticationService } from '../shared_services/authentication.service
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private authenticationService: AuthenticationService) { }
+
+  constructor(private router: Router , private  _customerService: CustomerService) { }
 
   ngOnInit() {
   }
 
-  processRegisterForm(){
-    console.log("done!");
+  processRegisterForm(formData){
+     console.log(formData);
+    this._customerService.createCustomer(formData).pipe().subscribe(
+      data => {
+        this.router.navigate['/login'];
+        console.log("customer created successfully "+ data);
+      } , 
+      error =>{
+        console.log("Customer creation failed "+error.message);
+      }
+    )  
   }
 
   
