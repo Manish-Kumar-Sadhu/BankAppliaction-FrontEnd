@@ -1,0 +1,35 @@
+
+.chip-card{
+    width: 15rem;
+    height:9rem;
+    cursor: pointer;
+    margin-left: 1.5%;
+    margin-top: 0.8rem;
+    display: inline-block;
+    box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+    border-radius: 8px !important;
+    
+}
+
+.chart-card{
+    width: 40rem;
+    margin-top: 0.8rem;
+    margin-left: 1%;
+    /* background-color: #F8F8F8; */
+    display: inline-block;
+    box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+}
+mat-card-content{
+    font-size: 2rem;
+    text-align: center;
+}
+.dashboard{
+    /* margin-top: 1rem; */
+}
+mat-icon{
+    color: white ; 
+    font-size: 2rem;
+    /* padding-bottom: 2rem;
+    padding-left: 2rem; */
+}
+

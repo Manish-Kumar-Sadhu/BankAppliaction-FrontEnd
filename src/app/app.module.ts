@@ -22,6 +22,8 @@ import { CustomerProfileComponent } from './customer-profile/customer-profile.co
 import { MainpageComponent } from './models/mainpage/mainpage.component';
 import { ContactComponent } from './common/contact/contact.component';
 import { TransferComponent } from './transfer/transfer.component';
+import { DashboardComponent } from './bank-components/dashboard/dashboard.component';
+
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { TransferComponent } from './transfer/transfer.component';
     TransactionSummaryComponent,
     MainpageComponent,
     ContactComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
