@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {  HttpClient, HttpHeaders} from '@angular/common/http';
 import { config } from '../config';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -83,13 +84,13 @@ export class BankService {
 
     // (BANK ADMIN | BANK EMPLOYEE) List of all customers
     getAllCustomers(){
+      console.log('all customers api');
       return this.http.get(config.BASE_URL+'/customer/list' , {headers:this.headers})
-        .pipe( map(allBankAccounts =>{
-            return allBankAccounts;
-        } , error =>{
-          console.log(error);
-        }
-        ))
+      .pipe( map(customers =>{
+          return customers;
+      } , error =>{
+        console.log(error);
+      }))
     }
 
   // (BANK ADMIN | BANK EMPLOYEE) List of all 

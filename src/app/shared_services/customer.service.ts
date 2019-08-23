@@ -49,8 +49,8 @@ export class CustomerService {
 
   }
 
-  // @params account_type
-  addAccountCustomerRequest(){
+  // @params account_type , customer_id
+  addAccountCustomerRequest(account_type , customer_id){
 
   }
 
@@ -67,8 +67,14 @@ export class CustomerService {
   }
 
   // can update all details initially 
-  customerUpdateDetails(){
-
+  customerUpdateDetails(customer): Observable<any>{
+    return this.http.put<any>(config.BASE_URL+'/customer/update', JSON.stringify(customer) ,  {headers:this.headers})
+      .pipe( map( customer =>{
+        return customer;
+      } , error => {
+        console.log(error);
+      })
+      )
   }
 
 
