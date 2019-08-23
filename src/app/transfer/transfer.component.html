@@ -2,63 +2,37 @@
         <mat-card-header>
           <mat-card-title>Transfer</mat-card-title>
         </mat-card-header>
-<form #TransferForm="ngForm" (ngSubmit)="onSubmit()"> 
+        <mat-divider></mat-divider> <br>
 
 <mat-form-field appearance="outline"> 
     <mat-label>Select an Account</mat-label><br>
-    <mat-select [(value)]="selected">
+    <mat-select  [(value)]="selected" >
       <mat-option value="3795767342">3795767342</mat-option>
       <mat-option value="2374672647">2374672647</mat-option>
       <mat-option value="6532876587">6532876587</mat-option>
     </mat-select>
 </mat-form-field>
+<form #TransferForm="ngForm" (ngSubmit)="onSubmit(TransferForm.value)"> 
+<br>
 
-<br>
-<div class="row">
-<div class="col-md-6">
-    <mat-form-field appearance="outline">
-    <mat-label>From AccountNo.</mat-label>
-    <input matInput disabled>{{selected}}
-    <br>
-    </mat-form-field>
-</div>
-<br>
-<div class="col-md-6">
         <mat-form-field appearance="outline">
-        <mat-label>To AccountNo.</mat-label>
-        <br>
-        <input matInput placeholder="XXXXX">
-        <br>
+                <mat-label>From AccountNo.</mat-label>
+                <input matInput name="from_account" value={{selected}} disabled ngModel>
         </mat-form-field>
-</div>
-</div>
-<br>
-<div class="row">
-        <div class="col-md-6">
-            <mat-form-field appearance="outline">
-            <mat-label>Enter the Amount</mat-label>
-            <br>
-            <input matInput type="number" placeholder="In Rupees" required>
-            <br>
-            </mat-form-field>
-        </div>
+        <mat-form-field appearance="outline">
+                <mat-label>To AccountNo.</mat-label>
+                <input matInput name="to_account" type="number" placeholder="XXXXX" ngModel>
+        </mat-form-field>
         <br>
-        <div class="col-md-6">
-                <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline">
+                <mat-label>Enter the Amount</mat-label>
+                <input matInput type="number" name="amount" placeholder="In Rupees" required ngModel>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
                 <mat-label>Description</mat-label>
-                <textarea matInput></textarea>
-                <br>
-                </mat-form-field>
-        </div>
-</div>
-<br>
-<div>
-<mat-checkbox>Confirm</mat-checkbox>
-</div>
-<br>
-<br>
-<div class="example-button-row">
-        <button mat-raised-button>Submit</button>
-</div>
+                <textarea matInput name="description" ngModel></textarea>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color="primary"  >Submit</button>
 </form>
 </mat-card>

@@ -1,11 +1,18 @@
 mat-card{
     color: black;
     width:50rem;
-    /* justify-content: center; */
-    left: 15rem;
-    top: 3rem;
     cursor: text;
+    margin: 0 auto;
+    text-align: center
+}
+
+input {
+    text-align: left;
 }
 mat-form-field{
-    color: black;
+    width: 50%;
+    padding: 2%
+}
+button{
+    text-align: center
 }

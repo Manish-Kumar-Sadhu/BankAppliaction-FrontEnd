@@ -18,8 +18,9 @@ export class TransferComponent implements OnInit {
     // });
   
   }
-  onSubmit(){
+  onSubmit(formData){
     console.log("Transfer Done!")
+    console.log(formData);
     }
 
 
