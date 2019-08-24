@@ -23,9 +23,7 @@ mat-card-content{
     font-size: 2rem;
     text-align: center;
 }
-.dashboard{
-    /* margin-top: 1rem; */
-}
+
 mat-icon{
     color: white ; 
     font-size: 2rem;

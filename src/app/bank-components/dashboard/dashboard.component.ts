@@ -55,7 +55,7 @@ export class DashboardComponent implements OnInit {
       },
       data: {
 				datasets: [{
-					data: [2430, 1560, 3650, 2300, 1560, 2650, 3560, 5403 ,  4043, 2556, 5165, 6900],
+          data: [2430, 1560, 3650, 2300, 1560, 2650, 3560, 5403 ,  4043, 2556, 5165, 6900],
           backgroundColor: ["#EB5757","#FFD200","#cbb4d4","#0ED2F7" , "#2dbcf1" , "#1ebfae" , "#f18455","#f5c417" , 
                         "#cbb4d4", "#EB5757" , "#da22ff", "#cbb4d4" ],
           label: ['Transactions'] , 

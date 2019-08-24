@@ -30,10 +30,6 @@ export class SideNavComponent implements OnInit {
       {'title':'ChangePassword' , 'icon':'edit'}
     ]
   // TODO: choose best names for sidenav
-  // customer_items:string[] = [ 'Profile' , 'Accounts' ,  'TransactionSummary',  'Transfer',  
-  //         'AddBankAccount' ,'ChangePassword' ,  `FAQ's` ];
-  
-  // bank_items:string[] = ['Dashboard' , 'Profile' , 'Customer Accounts' ,  'CustomerRequests' ,'ChangePassword'];
   private nav_items = (this.userType ==='customer' ? this.customer_items : this.bank_items);
   ngOnInit() {
     this.isLoggedIn = localStorage.getItem('isLoggedIn');
