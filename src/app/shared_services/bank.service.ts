@@ -48,7 +48,7 @@ export class BankService {
         ))
   }
 
-  // (BANK ADMIN | BANK EMPLOYEE) update account details
+  // (BANK ADMIN | BANK EMPLOYEE) update his/her account details
   //  @params bankEmployee Object
   updateBankEmployeeDetails(bankEmployee){
     return this.http.put(config.BASE_URL+'bankEmployee/save' , JSON.stringify(bankEmployee)  , {headers:this.headers})
@@ -95,7 +95,7 @@ export class BankService {
 
   // (BANK ADMIN | BANK EMPLOYEE) List of all 
   getAllTransactions(){
-    return this.http.get(config.BASE_URL+'/transactions/list' , {headers:this.headers})
+    return this.http.get(config.BASE_URL+'/transaction/list' , {headers:this.headers})
       .pipe( map(allBankTransactions =>{
           return allBankTransactions;
       } , error =>{
@@ -114,10 +114,5 @@ export class BankService {
     
   }
 
-  // (BANK ADMIN | BANK EMPLOYEE | CUSTOMER )
-  // @params id and user_type
-  changePassword(){
-
-  }
 
 }

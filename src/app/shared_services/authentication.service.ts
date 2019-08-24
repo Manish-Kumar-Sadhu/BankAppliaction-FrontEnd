@@ -48,4 +48,16 @@ export class AuthenticationService {
     // this.currentUserSubject.next(null);
 }
 
+
+  // (BANK ADMIN | BANK EMPLOYEE | CUSTOMER )
+  // @params id and user_type
+  changePassword(customer_id , user_type ,  password){
+    this.http.post(config.BASE_URL+'/auth/updatepassword' , JSON.stringify({'customer_id' : customer_id , 'user_type':user_type , 'password':password}) , {headers:this.headers} )
+    .pipe( map(res => {
+      return res;
+    })
+  )
+  }
+
+
 }

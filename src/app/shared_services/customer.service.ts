@@ -50,8 +50,14 @@ export class CustomerService {
   }
 
   // @params account_type , customer_id
-  addAccountCustomerRequest(account_type , customer_id){
-
+  addAccountCustomerRequest(customer_id  , account_type){
+    this.http.post(config.BASE_URL+'/account/save'+customer_id , JSON.stringify({'account_type': account_type }) , {headers:this.headers})
+      .pipe( map( res =>{
+        return res;
+      } , error => {
+        console.log(error);
+      })
+      )
   }
 
   // @params account_no  
@@ -62,8 +68,8 @@ export class CustomerService {
 
   // @params from_account , to_account , amount  , 
   // online money transaction
-  customerMoneyTransfer(){
-
+  customerMoneyTransfer(transfer){
+    // return this.http.post(config.BASE_URL+'/')
   }
 
   // can update all details initially 
