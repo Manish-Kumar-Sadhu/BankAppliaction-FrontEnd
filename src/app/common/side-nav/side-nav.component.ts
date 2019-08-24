@@ -19,7 +19,7 @@ export class SideNavComponent implements OnInit {
         {'title':'TransactionSummary' , 'icon':'compare_arrows'},
         {'title':'Transfer' , 'icon':'arrow_right_alt'},
         {'title':'ChangePassword' , 'icon':'edit'},
-        {'title':`FAQ's` , 'icon':'help_outline'},
+        {'title':'FAQs' , 'icon':'help_outline'},
       ]
     private bank_items = [
       {'title':'Dashboard' , 'icon':'dashboard'},

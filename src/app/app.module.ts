@@ -23,6 +23,10 @@ import { MainpageComponent } from './models/mainpage/mainpage.component';
 import { ContactComponent } from './common/contact/contact.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { DashboardComponent } from './bank-components/dashboard/dashboard.component';
+import { CustomerAccountsComponent } from './common/customer-accounts/customer-accounts.component';
+import { CustomerDetailsComponent } from './common/customer-details/customer-details.component';
+import { CustomerRequestsComponent } from './common/customer-requests/customer-requests.component';
+import { FaqsComponent } from './customer-components/faqs/faqs.component';
 
 
 @NgModule({
@@ -42,7 +46,11 @@ import { DashboardComponent } from './bank-components/dashboard/dashboard.compon
     TransactionSummaryComponent,
     MainpageComponent,
     ContactComponent,
-    DashboardComponent
+    DashboardComponent,
+    CustomerAccountsComponent,
+    CustomerDetailsComponent,
+    CustomerRequestsComponent,
+    FaqsComponent
   ],
   imports: [
     BrowserModule,
