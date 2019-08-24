@@ -1,0 +1,14 @@
+<mat-card class="customer-requests" >
+  <mat-card-header>
+    <mat-card-title>List Of Customers</mat-card-title>
+  </mat-card-header>
+  
+  <mat-list role="list" *ngFor="let cust of custs" [class.selected]="cust === selectedCustomer"
+  (click)="onSelect(cust)">
+    <mat-list-item role="listitem">{{cust.name}}</mat-list-item>
+    <mat-divider [inset]="true"></mat-divider>
+  </mat-list>
+  
+
+</mat-card>
+<app-customer-details [cust]="selectedCustomer"></app-customer-details>

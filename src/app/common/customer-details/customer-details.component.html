@@ -1,0 +1,15 @@
+<mat-card *ngIf="cust"><br>
+  <h2> Details</h2>
+  <form #AcceptOrRejectForm="ngForm" (ngSubmit)="processRegisterForm()">
+    <mat-list role="list" [(ngModel)]="cust.name">
+        <mat-list-item role="listitem">Customer_id: {{cust.id}}</mat-list-item>
+        <mat-list-item role="listitem">Name: {{cust.name}}</mat-list-item>
+        <mat-list-item role="listitem">Mobile no: {{cust.mobile}}</mat-list-item>
+        <mat-list-item role="listitem">Email: {{cust.email}}</mat-list-item>
+        <mat-list-item role="listitem">State: {{cust.state}}</mat-list-item>
+        <mat-list-item role="listitem">Number of Accounts: {{cust.number_of_accounts}}</mat-list-item>
+      </mat-list>
+      <button mat-flat-button color="primary" type="submit">Activate Account</button> &nbsp;&nbsp;&nbsp;
+      <button mat-flat-button color="warn" type="submit" >Deactivate Account</button>
+    </form>
+</mat-card>

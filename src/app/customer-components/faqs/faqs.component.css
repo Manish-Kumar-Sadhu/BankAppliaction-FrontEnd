@@ -1,0 +1,22 @@
+mat-card{
+    color: black;
+    width:75%;
+    text-align: center;
+    cursor: text;
+    margin: 0 auto;
+    margin-top:2%;
+}
+mat-card-header{
+    color:indigo;
+    font-weight: 900;
+}
+mat-panel-title{
+    color:royalblue;
+}
+
+mat-expansion-panel{
+    margin-top: 1%
+}
+p{
+    text-align: left;
+}
