@@ -1,6 +1,6 @@
 import {NgModule} from "@angular/core";
-import  { MatButtonModule, MatCardModule, MatMenuModule ,  MatInputModule, MatCheckboxModule,
-          MatListModule, MatToolbarModule, MatSidenavModule, MatIconModule  ,MatProgressSpinnerModule, 
+import  { MatButtonModule, MatCardModule, MatMenuModule ,  MatInputModule, MatCheckboxModule, MatDialogModule,
+          MatListModule, MatToolbarModule, MatSidenavModule, MatIconModule  ,MatProgressSpinnerModule, MatPaginatorModule,
           MatExpansionModule, MatDividerModule, MatGridListModule, MatTableModule , MatTabsModule} from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
     const Material = [
@@ -21,7 +21,9 @@ import {MatSelectModule} from '@angular/material/select';
       MatDividerModule,
       MatSelectModule,
       MatTableModule,
-      MatTabsModule
+      MatTabsModule,
+      MatDialogModule,
+      MatPaginatorModule
     ]
 
     @NgModule({

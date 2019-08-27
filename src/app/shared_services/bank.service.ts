@@ -18,7 +18,7 @@ export class BankService {
   getBankDetails(){
     return this.http.get(config.BASE_URL+'/bank/details' , {headers:this.headers})
       .pipe( map( bankDetails =>{
-          return bankDetails;
+          return JSON.parse(JSON.stringify(bankDetails));
       } , error =>{
         console.log(error);
       })
@@ -51,7 +51,7 @@ export class BankService {
   // (BANK ADMIN | BANK EMPLOYEE) update his/her account details
   //  @params bankEmployee Object
   updateBankEmployeeDetails(bankEmployee){
-    return this.http.put(config.BASE_URL+'bankEmployee/save' , JSON.stringify(bankEmployee)  , {headers:this.headers})
+    return this.http.put(config.BASE_URL+'bankemployee/update' , JSON.stringify(bankEmployee)  , {headers:this.headers})
         .pipe( map(
           (response: Response)=> response,
           error =>{
@@ -62,7 +62,7 @@ export class BankService {
 
   // (BANK ADMIN) List of all bank employees 
   getAllBankEmployees(){
-    return this.http.get(config.BASE_URL+'/bankEmployee/list' , {headers:this.headers})
+    return this.http.get(config.BASE_URL+'/bankemployee/list' , {headers:this.headers})
       .pipe( map(bankEmployeesList =>{
           return bankEmployeesList;
       } , error =>{
@@ -83,9 +83,11 @@ export class BankService {
   }
 
     // (BANK ADMIN | BANK EMPLOYEE) List of all customers
-    getAllCustomers(){
+    getAllCustomers(page_no , size){
       console.log('all customers api');
-      return this.http.get(config.BASE_URL+'/customer/list' , {headers:this.headers})
+      typeof(page_no);
+      typeof(size);
+      return this.http.get(config.BASE_URL+'/customer/list/'+parseInt(page_no)+'/'+parseInt(size) , {headers:this.headers})
       .pipe( map(customers =>{
           return customers;
       } , error =>{

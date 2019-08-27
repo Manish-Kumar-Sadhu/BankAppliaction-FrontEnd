@@ -15,8 +15,8 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
   // private user: User ={email:'' , password:''};
-  private email:string= '';
-  private password: string='';
+   email:string= '';
+   password: string='';
   constructor(private router: Router,  private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/'])
           },
            error => {
-             console.log("Login failed & error is "+error.message);
+             console.log(error);
             }
         )
   }

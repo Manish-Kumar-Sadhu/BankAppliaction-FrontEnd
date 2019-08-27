@@ -21,10 +21,10 @@ export class RegisterComponent implements OnInit {
     this._customerService.createCustomer(formData).pipe().subscribe(
       data => {
         this.router.navigate['/login'];
-        console.log("customer created successfully "+ data);
+        console.log("customer created successfully ");
       } , 
       error =>{
-        console.log("Customer creation failed "+error.message);
+        console.log(error.message);
       }
     )  
   }

@@ -5,7 +5,7 @@ import { PagenotfoundComponent } from './common/pagenotfound/pagenotfound.compon
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './common/about/about.component';
 import { RegisterComponent } from './register/register.component';
-import { TransferComponent } from './transfer/transfer.component';
+import { TransferComponent } from './customer-components/transfer/transfer.component';
 import { ContactComponent } from './common/contact/contact.component';
 
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';

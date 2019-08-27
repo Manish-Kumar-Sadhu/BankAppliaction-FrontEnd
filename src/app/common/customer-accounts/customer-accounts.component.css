@@ -3,9 +3,10 @@ mat-card{
     text-align: center;
     position: relative;
     width: 35rem; 
-    left: 5rem;
-    top: 5rem;
-    cursor: text;
+    /* left: 5rem;
+    top: 5rem; */
+    margin: 3 8 auto;
+    cursor: pointer;
   }
   .card-container { 
     

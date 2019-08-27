@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { CustomerService } from '../shared_services/customer.service';
+import { BankService } from '../shared_services/bank.service';
 @Component({
   selector: 'app-customer-profile',
   templateUrl: './customer-profile.component.html',
@@ -8,11 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class CustomerProfileComponent implements OnInit {
 
 // TODO: add alert services
-  private userDetails = JSON.parse(localStorage.getItem('currentUser'));;
+  public userDetails = JSON.parse(localStorage.getItem('currentUser'));;
   userType = localStorage.getItem('userType');
   toggleEditSaveButton:boolean;
   enableEdit:boolean;
-  constructor() { }
+  constructor(private _customerService : CustomerService , private _bankService : BankService) { }
 
   ngOnInit() {
     this.enableEdit = false;
@@ -26,8 +27,22 @@ export class CustomerProfileComponent implements OnInit {
     this.toggleEditSaveButton = true;
   }
 
-  processRegisterForm(){
-    console.log("egwa");
+  processUpdateForm(){
+    console.log(this.userDetails);
+    if(this.userType==="customer")
+      this._customerService.customerUpdateDetails(this.userDetails)
+      .subscribe(
+        (res) => { console.log(res)},
+        (error) => {console.log(error)}
+      )
+      if(this.userType==="bank"){
+        this._bankService.updateBankEmployeeDetails(this.userDetails)
+        .subscribe(
+          (res) => { console.log(res)},
+          (error) => {console.log(error)}
+        )
+      }
+      
     this.enableEdit = false;
     this.toggleEditSaveButton = false;
   }

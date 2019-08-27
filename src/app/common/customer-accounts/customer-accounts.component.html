@@ -2,18 +2,18 @@
   <mat-card-header class="card-container">
     <mat-card-title>List Of Customers</mat-card-title>
   </mat-card-header>
-  <mat-list role="list" *ngFor="let cust of custs" [class.selected]="cust === selectedCustomer"
-  (click)="onSelect(cust)">
-    <mat-list-item role="listitem">{{cust.name}}</mat-list-item>
+  <mat-list role="list" *ngFor="let cust of customerContent" 
+    (click)="onSelect(cust)">
+    <mat-list-item role="listitem">{{cust.first_name + cust.last_name}}</mat-list-item>
     <mat-divider [inset]="true"></mat-divider>
   </mat-list>
+  <mat-paginator [length]="length"
+                [pageSize]="pageSize"
+                [pageSizeOptions]="pageSizeOptions"
+                (page)="pageEvent = $event">
+  </mat-paginator>
 </mat-card>
-<!-- <mat-paginator [length]="length"
-              [pageSize]="pageSize"
-              [pageSizeOptions]="pageSizeOptions"
-              (page)="pageEvent = $event">
-</mat-paginator>
-
+<!-- 
 <div *ngIf="pageEvent">
   <h5>Page Change Event Properties</h5>
   <div>List length: {{pageEvent.length}}</div>

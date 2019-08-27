@@ -7,10 +7,16 @@ mat-card{
     color: black;
     width:50rem;
     /* justify-content: center; */
-    left: 15rem;
-    top: 3rem;
+    margin: 0 auto;
     cursor: text;
+    /* margin-bottom: 2% */
 }
 table {
     width: 100%;
   }
+
+.paginator{
+    /* width:50rem; */
+   
+    /* margin: 0 auto; */
+}

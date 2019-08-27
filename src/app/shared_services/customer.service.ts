@@ -45,8 +45,14 @@ export class CustomerService {
       )
   }
 
-  getCustomerTransactions(id){
-
+  getCustomerTransactions(customer_id){
+      return this.http.get(config.BASE_URL+'/transaction/list/'+customer_id , {headers:this.headers})
+      .pipe( map( transactions =>{
+          return transactions;
+      } , error =>{
+        console.log(error);
+      })
+      )
   }
 
   // @params account_type , customer_id
@@ -68,8 +74,14 @@ export class CustomerService {
 
   // @params from_account , to_account , amount  , 
   // online money transaction
-  customerMoneyTransfer(transfer){
-    // return this.http.post(config.BASE_URL+'/')
+  customerMoneyTransfer(transactionData , customerId ){
+    return this.http.post(config.BASE_URL+`/transaction/new/${customerId}`, JSON.stringify(transactionData) , {headers:this.headers})
+      .pipe(  map( res =>{
+          return res;
+        } , error => {
+          console.log(error);
+        })
+      )
   }
 
   // can update all details initially 

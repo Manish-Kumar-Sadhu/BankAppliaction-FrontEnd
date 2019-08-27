@@ -7,12 +7,10 @@
 <mat-form-field appearance="outline"> 
     <mat-label>Select an Account</mat-label><br>
     <mat-select  [(value)]="selected" >
-      <mat-option value="3795767342">3795767342</mat-option>
-      <mat-option value="2374672647">2374672647</mat-option>
-      <mat-option value="6532876587">6532876587</mat-option>
+      <mat-option *ngFor="let account of accounts" value={{account.account_no}} (click)="selectFromAccount(account.account_no)">{{account.account_no}}</mat-option>
     </mat-select>
 </mat-form-field>
-<form #TransferForm="ngForm" (ngSubmit)="onSubmit(TransferForm.value)"> 
+<form #TransferForm="ngForm" (ngSubmit)="TransferMoney(TransferForm.value)"> 
 <br>
 
         <mat-form-field appearance="outline">
@@ -21,7 +19,7 @@
         </mat-form-field>
         <mat-form-field appearance="outline">
                 <mat-label>To AccountNo.</mat-label>
-                <input matInput name="to_account" type="number" placeholder="XXXXX" ngModel>
+                <input matInput name="to_account_number" type="number" placeholder="XXXXX" ngModel>
         </mat-form-field>
         <br>
         <mat-form-field appearance="outline">

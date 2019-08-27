@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   public currentUser;
   userType = localStorage.getItem('userType');
   userDetails = localStorage.getItem("currentUser");
-  private LOGO = require("../../../assets/inguz.png");
+   LOGO = require("../../../assets/iron-bank.png");
   constructor(private router: Router, private _authenticationService: AuthenticationService) { 
     // this._authenticationService.cu
   }

@@ -1,7 +1,14 @@
-
-<mat-card>
+<div>
+    <mat-card>
         <b> Your Bank Accounts </b>
+    </mat-card>
+    <button mat-raised-button color="accent" type="button">Request Account</button>
+</div>
+<br> <br>
+<mat-card *ngIf="accounts.length === 0" >
+        <p>You Don't have any accounts! click above request Account button to open an account</p>
 </mat-card>
+
 <br>
 <!-- accordions  -->
 <mat-accordion multi=true>

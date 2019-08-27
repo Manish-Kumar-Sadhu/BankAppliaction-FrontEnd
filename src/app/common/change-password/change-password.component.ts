@@ -8,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
 export class ChangePasswordComponent implements OnInit {
 
   hide = true;//password visibility property
-  email:string = 'get from session'
+   userDetails = JSON.parse(localStorage.getItem('currentUser'));
+   email:string ;
+   userType = localStorage.getItem('userType');
   constructor() { }
 
   ngOnInit() {
+    this.email = this.userDetails.email;
+  }
+
+  processForm(formData){
+    console.log(formData);
   }
 
 }

@@ -9,7 +9,7 @@ import { AuthenticationService } from '../shared_services/authentication.service
 export class HomeComponent implements OnInit {
 
   public userType; 
-  constructor(private _authenticationService:AuthenticationService) { }
+  constructor( private _authenticationService:AuthenticationService) { }
 
   ngOnInit() {
     let urlParams = new URLSearchParams(location.search);
