@@ -11,6 +11,7 @@ export class SideNavComponent implements OnInit {
   comp: string; 
   isLoggedIn;
   userType = localStorage.getItem('userType');
+  userDetails = JSON.parse(localStorage.getItem('currentUser'));
   constructor() { }
 
      customer_items = [
@@ -27,11 +28,14 @@ export class SideNavComponent implements OnInit {
       {'title':'Customer Accounts' , 'icon':'account_tree'},
       {'title':'Customer Requests' , 'icon':'notification_important'},
       {'title':'All Transactions' , 'icon':'swap_horiz'},
-      {'title':'ChangePassword' , 'icon':'edit'}
+      {'title':'ChangePassword' , 'icon':'edit'},
     ]
+    all_bank_items =  (this.userType ==='bank' && this.userDetails.employee_role === 'ADMIN') ? [...this.bank_items , {'title': 'Add Employee' , 'icon':'person_add'}] : this.bank_items;
   // TODO: choose best names for sidenav
-   nav_items = (this.userType ==='customer' ? this.customer_items : this.bank_items);
-  ngOnInit() {
+   nav_items = (this.userType ==='customer' ? this.customer_items : this.all_bank_items);
+   
+  
+   ngOnInit() {
     this.isLoggedIn = localStorage.getItem('isLoggedIn');
     this.comp =  this.userType === 'customer' ? 'Profile' : 'Dashboard';
   }
