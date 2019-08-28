@@ -3,6 +3,7 @@ import {  HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { config } from '../config';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -10,7 +11,7 @@ import { config } from '../config';
 })
 export class AuthenticationService {
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient , private router: Router,) { 
   }
 
   private headers = new HttpHeaders({'Content-Type':'application/json'});
@@ -46,6 +47,7 @@ export class AuthenticationService {
     localStorage.removeItem('currentUser');
     localStorage.removeItem('isLoggedIn')
     // this.currentUserSubject.next(null);
+    this.router.navigate(['/login'])
 }
 
 

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CUSTOMERLIST } from 'src/app/customer-mock';
 import { Customer } from 'src/app/customer';
-import { PageEvent } from '@angular/material';
+import { PageEvent, MatPaginator, MatPaginatorModule, MatTableDataSource } from '@angular/material';
 import { BankService } from '../../shared_services/bank.service'
 
 
@@ -13,40 +13,49 @@ import { BankService } from '../../shared_services/bank.service'
 })
 export class CustomerAccountsComponent implements OnInit {
 
+
+  @ViewChild(MatPaginator , {static: false}) paginator: MatPaginator;    
+  
+
   // public custs=CUSTOMERLIST;
   public selectedCustomer: Customer;
   public  customers;
   public length:number=10;
   public pageSize:number=0;
-  public pageSizeOptions: number[] = [1, 2 , 3 ,4 ,5, 10, 25, 100];
-  // public customerDetails:[] = this.customers
+  public pageSizeOptions: number[] = [1, 2 ,5, 10, 25, 100];
+  public pages:Array<number>;
+  displayedColumns: string[] = [ 'serialNo' ,'CustomerId','Name'];
+  dataSource = new MatTableDataSource(this.customers);
+
+   pageEvent: PageEvent;
   setPageSizeOptions(setPageSizeOptionsInput: string) {
     this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
+  }
+
+  handlePage(event: PageEvent){
+    
+    this.getCustomers(event.pageIndex , event.length); 
   }
 
   constructor(private _bankService: BankService) { 
   }
   ngOnInit() {
-    this.getCustomers();
+    this.dataSource.paginator = this.paginator;
+    this.getCustomers(this.pageSize , this.length);
   }
   onSelect(cust:Customer): void {
     this.selectedCustomer = cust;
   }
-  
-  // ngOnChanges(p: this.pageSize , l: this.length ): void {
-  //   //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
-  //   //Add '${implements OnChanges}' to the class.
-  //   this._bankService.getAllCustomers(p, length)
-  //   .subscribe(
-  //     (res) => {this.customers = res; console.log(res)},
-  //     (error) => {console.log(error)}
-  //   )
-  // }
 
-  getCustomers(){
-    this._bankService.getAllCustomers(this.pageSize , this.length)
+  
+  
+  getCustomers(pageSize , length){
+    this._bankService.getAllCustomers(pageSize , length)
     .subscribe(
-      (res) => {this.customers = res; console.log(JSON.parse(JSON.stringify(res)));},
+      (res) => {
+          this.customers = res['content'];  
+          this.length =res['totalPages'];
+          console.log(res['content'])},
       (error) => {console.log(error)}
     )
   }

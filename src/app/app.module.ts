@@ -30,7 +30,7 @@ import { FaqsComponent } from './customer-components/faqs/faqs.component';
 import { AlertComponent } from './common/alert/alert.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-
+import { NgIdleKeepaliveModule } from '@ng-idle/keepalive'; // this includes the core NgIdleModule but includes keepalive providers for easy wireup
 
 
 @NgModule({
@@ -64,7 +64,8 @@ import { environment } from '../environments/environment';
     BrowserAnimationsModule,
     FormsModule,
     CustomMaterialModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    NgIdleKeepaliveModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

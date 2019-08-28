@@ -17,3 +17,9 @@ mat-card{
     display: flex;
     justify-content: space-between;
   }
+  ng-container{
+    margin-left: 10rem;
+  }
+  mat-table{
+    width: 50%;
+  }

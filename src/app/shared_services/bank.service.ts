@@ -87,7 +87,7 @@ export class BankService {
       console.log('all customers api');
       typeof(page_no);
       typeof(size);
-      return this.http.get(config.BASE_URL+'/customer/list/'+parseInt(page_no)+'/'+parseInt(size) , {headers:this.headers})
+      return this.http.get(config.BASE_URL+'/customer/list/'+page_no+'/'+size , {headers:this.headers})
       .pipe( map(customers =>{
           return customers;
       } , error =>{
