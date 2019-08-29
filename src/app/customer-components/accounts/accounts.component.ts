@@ -11,7 +11,7 @@ export class AccountsComponent implements OnInit {
   constructor( private _customerService: CustomerService , private _bankService: BankService) { }
 
   show= false;
-
+  selected
   bankDetails;
   public accounts;
   allCustomers;
