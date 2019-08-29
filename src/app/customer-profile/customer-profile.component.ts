@@ -32,13 +32,13 @@ export class CustomerProfileComponent implements OnInit {
     if(this.userType==="customer")
       this._customerService.customerUpdateDetails(this.userDetails)
       .subscribe(
-        (res) => { console.log(res)},
+        (res) => { console.log(res); localStorage.setItem('currentUser' , JSON.parse(JSON.stringify(res)))},
         (error) => {console.log(error)}
       )
       if(this.userType==="bank"){
         this._bankService.updateBankEmployeeDetails(this.userDetails)
         .subscribe(
-          (res) => { console.log(res)},
+          (res) => { console.log(res); localStorage.setItem('currentUser' , JSON.parse(JSON.stringify(res)))   },
           (error) => {console.log(error)}
         )
       }
