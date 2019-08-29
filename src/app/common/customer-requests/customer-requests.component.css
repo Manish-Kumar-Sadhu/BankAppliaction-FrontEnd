@@ -2,10 +2,15 @@ mat-card{
     align-content:flex-end;
     text-align: center;
     position: relative;
-    width: 35rem; 
+    /* width: 35rem; 
     left: 5rem;
-    top: 5rem;
+    top: 5rem; */
     cursor: text;
+    width: 75%;
+    /* margin-top: 1%;
+    margin-left: 1% */
+    margin:0 auto;
+    
   }
   .card-container { 
     
@@ -15,4 +20,9 @@ mat-card{
     width: 500px;  
     display: flex;
     justify-content: space-between;
+  }
+
+  .customer-account-requests{
+    margin-top: 2%;
+    width: 87%;
   }

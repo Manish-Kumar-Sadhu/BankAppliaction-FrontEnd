@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import {  HttpClient, HttpHeaders} from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { config } from '../config';
 import { Observable } from 'rxjs';
-
+import { environment} from '../../environments/environment'
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +15,7 @@ export class CustomerService {
   private headers = new HttpHeaders({'Content-Type':'application/json'});
 
   getCustomerDetails(id){
-    return this.http.get(config.BASE_URL+'/customer/find/'+id , {headers:this.headers})
+    return this.http.get(environment.apiUrl+'/customer/find/'+id , {headers:this.headers})
       .pipe( map( customerDetails =>{
           return customerDetails;
       } , error =>{
@@ -26,7 +25,7 @@ export class CustomerService {
   }
 
   getCustomerAccounts(customer_id){
-    return this.http.get(config.BASE_URL+'/account/list/'+customer_id , {headers:this.headers})
+    return this.http.get(environment.apiUrl+'/account/list/'+customer_id , {headers:this.headers})
       .pipe( map( customerAccounts =>{
           return customerAccounts;
       } , error =>{
@@ -36,7 +35,7 @@ export class CustomerService {
   }
 
   createCustomer(customer): Observable<any>{
-    return this.http.post<any>(config.BASE_URL+'/customer/save', JSON.stringify(customer) ,  {headers:this.headers})
+    return this.http.post<any>(environment.apiUrl+'/customer/save', JSON.stringify(customer) ,  {headers:this.headers})
       .pipe( map( customer =>{
         return customer;
       } , error => {
@@ -46,7 +45,7 @@ export class CustomerService {
   }
 
   getCustomerTransactions(customer_id){
-      return this.http.get(config.BASE_URL+'/transaction/list/'+customer_id , {headers:this.headers})
+      return this.http.get(environment.apiUrl+'/transaction/list/'+customer_id , {headers:this.headers})
       .pipe( map( transactions =>{
           return transactions;
       } , error =>{
@@ -56,8 +55,8 @@ export class CustomerService {
   }
 
   // @params account_type , customer_id
-  addAccountCustomerRequest(customer_id  , account_type){
-    this.http.post(config.BASE_URL+'/account/save'+customer_id , JSON.stringify({'account_type': account_type }) , {headers:this.headers})
+  addAccountCustomerRequest(customer_id  , account_type_id){
+   return this.http.post(environment.apiUrl+`/account/save/${customer_id}/${account_type_id}` ,{headers:this.headers})
       .pipe( map( res =>{
         return res;
       } , error => {
@@ -72,10 +71,22 @@ export class CustomerService {
 
   }
 
+
+  activateCustomer(customer_id): Observable<any>{
+  return this.http.put<any>(environment.apiUrl+'/customer/activate/'+customer_id ,  {headers:this.headers})
+      .pipe( map( res =>{
+        return res;
+      } , error => {
+        console.log(error);
+      })
+      )
+  }
+
+
   // @params from_account , to_account , amount  , 
   // online money transaction
   customerMoneyTransfer(transactionData , customerId ){
-    return this.http.post(config.BASE_URL+`/transaction/new/${customerId}`, JSON.stringify(transactionData) , {headers:this.headers})
+    return this.http.post(environment.apiUrl+`/transaction/new/${customerId}`, JSON.stringify(transactionData) , {headers:this.headers})
       .pipe(  map( res =>{
           return res;
         } , error => {
@@ -86,7 +97,7 @@ export class CustomerService {
 
   // can update all details initially 
   customerUpdateDetails(customer): Observable<any>{
-    return this.http.put<any>(config.BASE_URL+'/customer/update', JSON.stringify(customer) ,  {headers:this.headers})
+    return this.http.put<any>(environment.apiUrl+'/customer/update', JSON.stringify(customer) ,  {headers:this.headers})
       .pipe( map( customer =>{
         return customer;
       } , error => {

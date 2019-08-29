@@ -1,14 +1,123 @@
-<mat-card class="customer-requests" >
+<mat-card class="customer-registration-requests" >
   <mat-card-header>
-    <mat-card-title>List Of Customers</mat-card-title>
+    <mat-card-title>List Of  Customers Registration Requests</mat-card-title>
   </mat-card-header>
-  
-  <mat-list role="list" *ngFor="let cust of custs" [class.selected]="cust === selectedCustomer"
-  (click)="onSelect(cust)">
-    <mat-list-item role="listitem">{{cust.name}}</mat-list-item>
-    <mat-divider [inset]="true"></mat-divider>
-  </mat-list>
-  
-
+  <!-- <mat-card-content #noRequests>
+    <h4 style="color: blue">No Pending Requests ❗</h4>
+  </mat-card-content> -->
+  <mat-card-content *ngIf="dataSource; else noRequests">
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8"  matSort>
+      <!-- Position Column -->
+      <!-- <ng-container matColumnDef="serialNo">
+        <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+        <mat-cell *matCellDef="let i = index;"> {{ i+1}} </mat-cell>
+      </ng-container> -->
+              
+      <!-- Name Column -->
+      <ng-container matColumnDef="CustomerId">
+        <mat-header-cell *matHeaderCellDef  mat-sort-header> Customer Id </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.customer_id}} </mat-cell>
+      </ng-container>
+      
+      <!-- Weight Column -->
+      <ng-container matColumnDef="Name" >
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.first_name+" "+element.last_name}} </mat-cell>
+      </ng-container>
+      
+      <!-- Symbol Column -->
+      <!-- <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef  mat-sort-header> Symbol </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+      </ng-container> -->
+      
+      <ng-container matColumnDef="Status" >
+        <mat-header-cell *matHeaderCellDef  mat-sort-header> Status </mat-header-cell>
+        <mat-cell *matCellDef="let element"  [style.color]="element.customer_status === 1 ? 'green' : 'red'" >
+          {{element.customer_status === 1 ? "ACTIVE" : "INACTIVE"}} 
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="Action" >
+        <mat-header-cell *matHeaderCellDef  mat-sort-header> Action </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <mat-slide-toggle  (click)="activateCustomer(element.customer_id)" >
+            Enable User
+          </mat-slide-toggle>
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onSelect(row)"></mat-row>
+</mat-table>
+</mat-card-content>
+<mat-paginator  [pageSizeOptions]="[2, 5, 7 , 10, 20]" showFirstLastButtons></mat-paginator>
 </mat-card>
-<app-customer-details [cust]="selectedCustomer"></app-customer-details>
+
+
+<mat-card class="customer-account-requests" >
+  <mat-card-header>
+    <mat-card-title>List Of  Customers Account Opening Requests</mat-card-title>
+  </mat-card-header>
+  <!-- <mat-card-content #noRequests>
+    <h4 style="color: blue">No Pending Requests ❗</h4>
+  </mat-card-content> -->
+  <mat-card-content *ngIf="accountDataSource; else noRequests">
+    <mat-table [dataSource]="accountDataSource" class="mat-elevation-z8"  matSort>
+      <!-- Position Column -->
+      <!-- <ng-container matColumnDef="serialNo">
+        <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+        <mat-cell *matCellDef="let i = index;"> {{ i+1}} </mat-cell>
+      </ng-container> -->
+              
+      <!-- Name Column -->
+      <ng-container matColumnDef="AccountNumber">
+        <mat-header-cell *matHeaderCellDef  mat-sort-header> Account Number </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.account_no}} </mat-cell>
+      </ng-container>
+      
+      <!-- Weight Column -->
+      <ng-container matColumnDef="CreationDate" >
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Requested Date </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.creation_date | date:'M/d/yyyy'}} </mat-cell>
+      </ng-container>
+      
+      <!-- Balance Column -->
+      <ng-container matColumnDef="Balance">
+        <mat-header-cell *matHeaderCellDef  mat-sort-header> Balance </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.balance | currency:'INR'}} </mat-cell>
+      </ng-container>
+      
+      <ng-container matColumnDef="AccountType">
+        <mat-header-cell *matHeaderCellDef  mat-sort-header> Account Type </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.account_type_id.account_type}} </mat-cell>
+      </ng-container>
+      
+      <ng-container matColumnDef="Status" >
+        <mat-header-cell *matHeaderCellDef  mat-sort-header> Status </mat-header-cell>
+        <mat-cell *matCellDef="let element"  [style.color]="element.customer_status === 1 ? 'green' : 'red'" >
+          {{element.customer_status === 1 ? "ACTIVE" : "INACTIVE"}} 
+        </mat-cell>
+      </ng-container>
+      <!-- <ng-container matColumnDef="Action" >
+        <mat-header-cell *matHeaderCellDef  mat-sort-header> Action </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <mat-slide-toggle  (click)="activate(element.customer_id)" >
+            Enable User
+          </mat-slide-toggle>
+        </mat-cell>
+      </ng-container> -->
+      <ng-container matColumnDef="Action" >
+        <mat-header-cell *matHeaderCellDef  mat-sort-header> Action </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <mat-slide-toggle  (click)="activateAccount(element.account_no)" >
+            Enable Account
+          </mat-slide-toggle>
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedAccountColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedAccountColumns;" (click)="onSelect(row)"></mat-row>
+</mat-table>
+</mat-card-content>
+<mat-paginator #AccountPaginator  [pageSizeOptions]="[2, 5, 7 , 10, 20]" showFirstLastButtons></mat-paginator>
+</mat-card>
+
+

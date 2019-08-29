@@ -18,7 +18,7 @@ export class AppComponent {
 
   constructor(private idle: Idle, private keepalive: Keepalive , private _authenticationService : AuthenticationService) {
     // sets an idle timeout of 5 seconds, for testing purposes.
-    idle.setIdle(3*60);
+    idle.setIdle(5*60);
     // sets a timeout period of 5 seconds. after 10 seconds of inactivity, the user will be considered timed out.
     idle.setTimeout(10);
     // sets the default interrupts, in this case, things like clicks, scrolls, touches to the document

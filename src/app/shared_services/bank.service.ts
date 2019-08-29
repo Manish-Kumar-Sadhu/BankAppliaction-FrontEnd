@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {  HttpClient, HttpHeaders} from '@angular/common/http';
-import { config } from '../config';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { environment} from '../../environments/environment'
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class BankService {
 
   //(CUSTOMER | BANK ADMIN | BANK EMPLOYEE ) Details to display in app
   getBankDetails(){
-    return this.http.get(config.BASE_URL+'/bank/details' , {headers:this.headers})
+    return this.http.get(environment.apiUrl+'/bank/details' , {headers:this.headers})
       .pipe( map( bankDetails =>{
           return JSON.parse(JSON.stringify(bankDetails));
       } , error =>{
@@ -27,7 +27,7 @@ export class BankService {
 
   //(CUSTOMER | BANK ADMIN | BANK EMPLOYEE ) Details to display in app
   getAccountTypes(){
-    return this.http.get(config.BASE_URL+'/accountType/list' , {headers:this.headers})
+    return this.http.get(environment.apiUrl+'/accounttype/list' , {headers:this.headers})
       .pipe( map(accountType =>{
           return accountType;
       } , error =>{
@@ -39,7 +39,7 @@ export class BankService {
   // (BANK ADMIN) Bank admin can create a bank employee
   // @params bankEmployee Object
   addBankEmployee(bankEmployee){
-    return this.http.post(config.BASE_URL+'bankEmployee/save' , JSON.stringify(bankEmployee)  , {headers:this.headers})
+    return this.http.post(environment.apiUrl+'bankEmployee/save' , JSON.stringify(bankEmployee)  , {headers:this.headers})
         .pipe( map(
           (response: Response)=> response,
           error =>{
@@ -51,7 +51,7 @@ export class BankService {
   // (BANK ADMIN | BANK EMPLOYEE) update his/her account details
   //  @params bankEmployee Object
   updateBankEmployeeDetails(bankEmployee){
-    return this.http.put(config.BASE_URL+'bankemployee/update' , JSON.stringify(bankEmployee)  , {headers:this.headers})
+    return this.http.put(environment.apiUrl+'/bankemployee/update' , JSON.stringify(bankEmployee)  , {headers:this.headers})
         .pipe( map(
           (response: Response)=> response,
           error =>{
@@ -62,7 +62,7 @@ export class BankService {
 
   // (BANK ADMIN) List of all bank employees 
   getAllBankEmployees(){
-    return this.http.get(config.BASE_URL+'/bankemployee/list' , {headers:this.headers})
+    return this.http.get(environment.apiUrl+'/bankemployee/list' , {headers:this.headers})
       .pipe( map(bankEmployeesList =>{
           return bankEmployeesList;
       } , error =>{
@@ -73,7 +73,7 @@ export class BankService {
 
   // (BANK ADMIN | BANK EMPLOYEE) List of all accounts
   getAllAccounts(){
-    return this.http.get(config.BASE_URL+'/account/list' , {headers:this.headers})
+    return this.http.get(environment.apiUrl+'/account/list' , {headers:this.headers})
       .pipe( map(allBankAccounts =>{
           return allBankAccounts;
       } , error =>{
@@ -83,21 +83,44 @@ export class BankService {
   }
 
     // (BANK ADMIN | BANK EMPLOYEE) List of all customers
-    getAllCustomers(page_no , size){
+    getAllCustomers(){
       console.log('all customers api');
-      typeof(page_no);
-      typeof(size);
-      return this.http.get(config.BASE_URL+'/customer/list/'+page_no+'/'+size , {headers:this.headers})
+      return this.http.get(environment.apiUrl+'/customer/list' , {headers:this.headers})
       .pipe( map(customers =>{
           return customers;
       } , error =>{
         console.log(error);
       }))
     }
+    
+    
+    getAllInactiveCustomers(){
+      console.log('all inactive customers api');
+      return this.http.get(environment.apiUrl+'/customer/inactivecustomerlist' , {headers:this.headers})
+      .pipe( map(inactiveCustomers =>{
+          return inactiveCustomers;
+      } , error =>{
+        console.log(error);
+      }))
+    }
+
+
+   
+    // getAllCustomers(page_no , size){
+    //   console.log('all customers api');
+    //   typeof(page_no);
+    //   typeof(size);
+    //   return this.http.get(environment.apiUrl+'/customer/list/'+page_no+'/'+size , {headers:this.headers})
+    //   .pipe( map(customers =>{
+    //       return customers;
+    //   } , error =>{
+    //     console.log(error);
+    //   }))
+    // }
 
   // (BANK ADMIN | BANK EMPLOYEE) List of all 
   getAllTransactions(){
-    return this.http.get(config.BASE_URL+'/transaction/list' , {headers:this.headers})
+    return this.http.get(environment.apiUrl+'/transaction/list' , {headers:this.headers})
       .pipe( map(allBankTransactions =>{
           return allBankTransactions;
       } , error =>{
@@ -108,12 +131,24 @@ export class BankService {
 
   // (BANK EMPLOYEE) list of all account opening requests
   getAccountOpeningRequests(){
-
+    return this.http.get(environment.apiUrl+'/account/inactiveaccountlist' , {headers:this.headers})
+      .pipe( map(allInActiveAccounts =>{
+          return allInActiveAccounts;
+      } , error =>{
+        console.log(error);
+      }
+      ))
   }
 
-  // (BANK EMPLOYEE) account number
-  activateAccountOpeningrequest(){
-    
+  // (BANK EMPLOYEE) activating the account requested by user
+  activateAccountOpeningrequest(account_no){
+    return this.http.put<any>(environment.apiUrl+'/account/activate/'+account_no ,  {headers:this.headers})
+    .pipe( map( res =>{
+      return res;
+    } , error => {
+      console.log(error);
+    })
+    )
   }
 
 

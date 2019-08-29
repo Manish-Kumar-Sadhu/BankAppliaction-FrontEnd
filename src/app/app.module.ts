@@ -16,7 +16,7 @@ import { ChangePasswordComponent } from './common/change-password/change-passwor
 import { SideNavComponent } from './common/side-nav/side-nav.component';
 import { AccountsComponent } from './customer-components/accounts/accounts.component';
 import { AboutComponent } from './common/about/about.component';
-import { TransactionSummaryComponent } from './transaction-summary/transaction-summary.component';
+import { TransactionSummaryComponent } from './customer-components/transaction-summary/transaction-summary.component';
 import { RegisterComponent } from './register/register.component';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { MainpageComponent } from './models/mainpage/mainpage.component';
@@ -31,6 +31,7 @@ import { AlertComponent } from './common/alert/alert.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { NgIdleKeepaliveModule } from '@ng-idle/keepalive'; // this includes the core NgIdleModule but includes keepalive providers for easy wireup
+import { MatSnackBar } from '@angular/material';
 
 
 @NgModule({
@@ -67,7 +68,7 @@ import { NgIdleKeepaliveModule } from '@ng-idle/keepalive'; // this includes the
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     NgIdleKeepaliveModule.forRoot()
   ],
-  providers: [],
+  providers: [ MatSnackBar ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

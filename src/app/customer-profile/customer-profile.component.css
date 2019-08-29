@@ -4,6 +4,7 @@ mat-card{
     cursor: text;
     margin: 0 auto;
     margin-top:1.5%;
+    /* background-color: #cccccc; */
 }
 
 mat-form-field {

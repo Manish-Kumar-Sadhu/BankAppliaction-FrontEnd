@@ -1,7 +1,7 @@
 
 mat-sidenav-container{
     height: 90.2%;
-    background: linear-gradient(to left, #667db6, #0d9be7, #0082c8, #667db6);
+    /* background: linear-gradient(to left, #667db6, #0d9be7, #0082c8, #667db6); */
     /* box-sizing: border-box; */
     
 }
@@ -11,7 +11,7 @@ mat-sidenav {
     width: 18%;
     opacity: .77;
     background-color: #cccccc;
-    background-image: url('https://demos.creative-tim.com/material-dashboard-angular2/assets/img/sidebar-3.jpg');
+    /* background-image: url('https://demos.creative-tim.com/material-dashboard-angular2/assets/img/sidebar-3.jpg'); */
     -webkit-tap-highlight-color: transparent;
 }
  mat-sidenav-content{

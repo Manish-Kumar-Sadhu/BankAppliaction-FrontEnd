@@ -7,3 +7,6 @@ mat-card{
 mat-expansion-panel{
     margin-top: 1%
 }
+.account-request-form{
+    width: 60%
+}

@@ -1,21 +1,24 @@
 <mat-card class="" >
         <mat-card-header>
-          <mat-card-title>Transaction Summary</mat-card-title>
+          <mat-card-title>Transaction Summary 
+              <span *ngIf="userType === 'customer'"> of {{customerData.first_name+" "+ customerData.last_name}} </span>
+              <span *ngIf="userType === 'bank'"> of Customers </span>
+        </mat-card-title>
         </mat-card-header>
 <mat-tab-group>
   <mat-tab label="All Transactions"><br>
-    <table mat-table [dataSource]="customerTransactions" class="mat-elevation-z8" align="center" >
-    <ng-container matColumnDef="serialNo">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" align="center" matSort>
+    <!-- <ng-container matColumnDef="serialNo">
         <th mat-header-cell *matHeaderCellDef>#</th>
         <td mat-cell *matCellDef=" let i = index;"> {{i+1}} </td>
-    </ng-container>
+    </ng-container> -->
     <ng-container matColumnDef="TransactionId">
         <th mat-header-cell *matHeaderCellDef>Transaction Id</th>
         <td mat-cell *matCellDef="let trans"> {{trans.transaction_id}} </td>
     </ng-container>
-    <ng-container matColumnDef="date">
-        <th mat-header-cell *matHeaderCellDef> Date </th>
-        <td mat-cell *matCellDef="let trans"> {{trans.creation_date | date }} </td>
+    <ng-container matColumnDef="Date">
+        <th mat-header-cell *matHeaderCellDef>Date</th>
+        <td mat-cell *matCellDef="let trans"> {{trans.creation_date | date:'M/d/yyyy'}} </td>
     </ng-container>
     <ng-container matColumnDef="from">
         <th mat-header-cell *matHeaderCellDef> From Account </th>
@@ -27,7 +30,7 @@
     </ng-container>
     <ng-container matColumnDef="amount">
         <th mat-header-cell *matHeaderCellDef> Amount </th>
-        <td mat-cell *matCellDef="let trans"> {{trans.amount}} </td>
+        <td mat-cell *matCellDef="let trans"> {{trans.amount | currency:'INR'}} </td>
     </ng-container>
     <ng-container matColumnDef="type">
         <th mat-header-cell *matHeaderCellDef> Type </th>
@@ -105,9 +108,5 @@
   </mat-tab>
    -->
 </mat-tab-group>
-<mat-paginator class="paginator" [length]="length"
-              [pageSize]="pageSize"
-              [pageSizeOptions]="pageSizeOptions"
-              (page)="pageEvent = $event">
-</mat-paginator>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 </mat-card>

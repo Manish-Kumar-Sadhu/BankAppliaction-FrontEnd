@@ -2,12 +2,15 @@ mat-card{
     align-content:flex-end;
     text-align: center;
     position: relative;
-    width: 35rem; 
+    /* width: 35rem;  */
     /* left: 5rem;
     top: 5rem; */
+    width: 60%;
+    margin-top: 1%;
     margin: 3 8 auto;
-    cursor: pointer;
+    justify-content: space-between;
   }
+  
   .card-container { 
     
     background:darkgray;
@@ -21,5 +24,21 @@ mat-card{
     margin-left: 10rem;
   }
   mat-table{
+    width: 100%;
+  }
+
+  mat-cell{
+    cursor: pointer;
+  }
+
+  mat-form-field {
+    font-size: 14px;
     width: 50%;
+    margin: 0 auto;
+  }
+  app-customer-details{
+    margin-left: 63%;
+    /* margin-bottom:  -68%; */
+    /* margin-top: 123% */
+    padding-top: 123%
   }

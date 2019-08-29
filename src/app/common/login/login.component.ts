@@ -3,7 +3,7 @@ import { FormGroup } from '@angular/forms';
 import {  AuthenticationService } from '../../shared_services/authentication.service';
 import { User } from 'src/app/models/user.model';
 import { first } from 'rxjs/operators';
-import {MatSnackBar} from '@angular/material/snack-bar';
+// import {MatSnackBar} from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
 @Component({
@@ -17,7 +17,11 @@ export class LoginComponent implements OnInit {
   // private user: User ={email:'' , password:''};
    email:string= '';
    password: string='';
-  constructor(private router: Router,  private authenticationService: AuthenticationService) { }
+  constructor(
+      private router: Router,  
+      private authenticationService: AuthenticationService
+      )
+      { }
 
   ngOnInit() {
   }

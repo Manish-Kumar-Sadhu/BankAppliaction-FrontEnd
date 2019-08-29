@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { CUSTOMERLIST } from 'src/app/customer-mock';
-import { Customer } from 'src/app/customer';
-import { PageEvent, MatPaginator, MatPaginatorModule, MatTableDataSource } from '@angular/material';
+import { Customer } from '../../models/customer.model';
+
+import { MatPaginator,  MatTableDataSource, MatSort } from '@angular/material';
 import { BankService } from '../../shared_services/bank.service'
 
 
@@ -14,49 +14,43 @@ import { BankService } from '../../shared_services/bank.service'
 export class CustomerAccountsComponent implements OnInit {
 
 
-  @ViewChild(MatPaginator , {static: false}) paginator: MatPaginator;    
-  
-
-  // public custs=CUSTOMERLIST;
   public selectedCustomer: Customer;
-  public  customers;
-  public length:number=10;
-  public pageSize:number=0;
-  public pageSizeOptions: number[] = [1, 2 ,5, 10, 25, 100];
-  public pages:Array<number>;
-  displayedColumns: string[] = [ 'serialNo' ,'CustomerId','Name'];
-  dataSource = new MatTableDataSource(this.customers);
-
-   pageEvent: PageEvent;
-  setPageSizeOptions(setPageSizeOptionsInput: string) {
-    this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
+  customers;
+  displayedColumns: string[] = ['CustomerId','Name' , 'Status'];
+  dataSource;
+  
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  handlePage(event: PageEvent){
-    
-    this.getCustomers(event.pageIndex , event.length); 
-  }
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort ,  {static: true}) sort: MatSort;
 
   constructor(private _bankService: BankService) { 
   }
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
-    this.getCustomers(this.pageSize , this.length);
+    
+    this._bankService.getAllCustomers()
+    .subscribe(
+      (res) => {
+          this.customers =res;  
+          this.dataSource =  new MatTableDataSource(JSON.parse(JSON.stringify(res)));
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
+          console.log(res);
+          
+        },
+      (error) => {console.log(error)}
+    )
+    // this.dataSource.paginator = this.paginator;
+    // this.dataSource.sort = this.sort;
+    // console.log(this.dataSource);
   }
+
   onSelect(cust:Customer): void {
+    console.log(cust);
     this.selectedCustomer = cust;
   }
 
   
-  
-  getCustomers(pageSize , length){
-    this._bankService.getAllCustomers(pageSize , length)
-    .subscribe(
-      (res) => {
-          this.customers = res['content'];  
-          this.length =res['totalPages'];
-          console.log(res['content'])},
-      (error) => {console.log(error)}
-    )
-  }
 }

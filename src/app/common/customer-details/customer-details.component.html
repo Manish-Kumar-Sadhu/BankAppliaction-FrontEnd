@@ -1,15 +1,14 @@
 <mat-card *ngIf="cust"><br>
   <h2> Details</h2>
-  <form #AcceptOrRejectForm="ngForm" (ngSubmit)="processRegisterForm()">
-    <mat-list role="list" [(ngModel)]="cust.name">
-        <mat-list-item role="listitem">Customer_id: {{cust.id}}</mat-list-item>
-        <mat-list-item role="listitem">Name: {{cust.name}}</mat-list-item>
-        <mat-list-item role="listitem">Mobile no: {{cust.mobile}}</mat-list-item>
-        <mat-list-item role="listitem">Email: {{cust.email}}</mat-list-item>
-        <mat-list-item role="listitem">State: {{cust.state}}</mat-list-item>
-        <mat-list-item role="listitem">Number of Accounts: {{cust.number_of_accounts}}</mat-list-item>
+  <mat-divider inset="true"></mat-divider>
+    <mat-list role="list"  >
+        <mat-list-item role="listitem" ><b>Customer_id:</b> {{cust.customer_id}}</mat-list-item>
+        <mat-list-item role="listitem"><b>Name:</b> {{cust.first_name+" "+cust.last_name}}</mat-list-item>
+        <mat-list-item role="listitem"><b>Mobile no:</b> {{cust.mobile_no}}</mat-list-item>
+        <mat-list-item role="listitem"><b>Email:</b> {{cust.email}}</mat-list-item>
+        <mat-list-item role="listitem"><b>State:</b> {{cust.state}}</mat-list-item>
+        <mat-list-item role="listitem"><b>Number of Accounts: </b> {{cust.number_of_accounts}}</mat-list-item>
       </mat-list>
       <button mat-flat-button color="primary" type="submit">Activate Account</button> &nbsp;&nbsp;&nbsp;
-      <button mat-flat-button color="warn" type="submit" >Deactivate Account</button>
-    </form>
+      <button mat-flat-button color="warn" type="submit" style="margin-left: 0.75%" >Deactivate Account</button>
 </mat-card>
