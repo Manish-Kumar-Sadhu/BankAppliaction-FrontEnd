@@ -5,7 +5,7 @@
   <!-- <mat-card-content #noRequests>
     <h4 style="color: blue">No Pending Requests ❗</h4>
   </mat-card-content> -->
-  <mat-card-content *ngIf="dataSource; else noRequests">
+  <mat-card-content *ngIf="dataSource;">
     <mat-table [dataSource]="dataSource" class="mat-elevation-z8"  matSort>
       <!-- Position Column -->
       <!-- <ng-container matColumnDef="serialNo">

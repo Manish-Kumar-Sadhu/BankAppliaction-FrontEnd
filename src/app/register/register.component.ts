@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
 
 
+
   constructor(private router: Router , private  _customerService: CustomerService) { }
 
   ngOnInit() {
@@ -18,14 +19,14 @@ export class RegisterComponent implements OnInit {
 
   processRegisterForm(formData){
      console.log(formData);
-    this._customerService.createCustomer(formData).pipe().subscribe(
-      data => {
-        this.router.navigate['/login'];
-        console.log("customer created successfully ");
-      } , 
-      error =>{
-        console.log(error.message);
-      }
-    )  
+    // this._customerService.createCustomer(formData).pipe().subscribe(
+    //   data => {
+    //     this.router.navigate['/login'];
+    //     console.log("customer created successfully ");
+    //   } , 
+    //   error =>{
+    //     console.log(error.message);
+    //   }
+    // )  
   }
 }
