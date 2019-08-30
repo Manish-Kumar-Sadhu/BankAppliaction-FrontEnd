@@ -128,6 +128,16 @@ export class BankService {
       }
       ))
   }
+  
+  getAllFlaggedTransactions(){
+    return this.http.get(environment.apiUrl+'/transaction/flagedtransaction' , {headers:this.headers})
+      .pipe( map(allFlaggedTransactions =>{
+          return allFlaggedTransactions;
+      } , error =>{
+        console.log(error);
+      }
+      ))
+  }
 
   // (BANK EMPLOYEE) list of all account opening requests
   getAccountOpeningRequests(){

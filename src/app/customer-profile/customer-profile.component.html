@@ -1,78 +1,69 @@
+
 <mat-card class="profile-card" >
   <mat-card-header>
     <mat-card-title> Your Details With Bank</mat-card-title>
   </mat-card-header>
   <mat-divider inset="true"></mat-divider> <br>
-  <form #RegisterForm="ngForm" (ngSubmit)="RegisterForm.valid && processUpdateForm()">
+  <form #RegisterForm="ngForm" (ngSubmit)="processUpdateForm()">
       <mat-card-content>
           <mat-form-field appearance="outline" *ngIf="userType==='customer'">
               <mat-label>  Customer ID</mat-label>
-              <input matInput  name="customer_id" type="number" required disabled placeholder="CustomerId"  [(ngModel)]="userDetails.customer_id" #Customer_idField='ngModel' [class.is-invalid]='Customer_idField.invalid' maxlength="11">
-              <small [class.d-none]='Customer_idField.valid || Customer_idField.untouched' class='text-danger'>Is required</small >
+              <input matInput [(ngModel)]="userDetails.customer_id" name="customer_id" type="text" required disabled>
             </mat-form-field>
           <mat-form-field appearance="outline" *ngIf="userType==='bank'">
               <mat-label>  Employee ID</mat-label>
-              <input matInput  name="employee_id" type="text" required disabled placeholder="EmployeeId"  [(ngModel)]="userDetails.employee_id" #employee_idField='ngModel' [class.is-invalid]='employee_idField.invalid' maxlength="11">
-              <small [class.d-none]='employee_idField.valid || employee_idField.untouched' class='text-danger'>Is required</small >
+              <input matInput [(ngModel)]="userDetails.employee_id" name="employee_id" type="text" required disabled>
             </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>  First Name</mat-label>
-            <input matInput  name="first_name" type="text" required [disabled]="!enableEdit"  placeholder="First Name"  [(ngModel)]="userDetails.first_name" #first_nameField='ngModel' [class.is-invalid]='first_nameField.invalid' maxlength="255">
-            <small [class.d-none]='first_nameField.valid || first_nameField.untouched' class='text-danger'>Is required</small> 
+            <input matInput [(ngModel)]="userDetails.first_name" name="first_name" type="text" required [disabled]="!enableEdit" >
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>Last  Name</mat-label>
-            <input matInput value={{userDetails.last_name}} name="last_name" type="text" required [disabled]="!enableEdit" >
+            <input matInput [(ngModel)]="userDetails.last_name" name="last_name" type="text" required [disabled]="!enableEdit" >
           </mat-form-field>
           <mat-form-field  appearance="outline">
             <mat-label>Email</mat-label>
-            <input matInput  name="email" type="text" required [disabled]="!enableEdit" [(ngModel)]="userDetails.email" #emailField='ngModel' email [class.is-invalid]='emailField.invalid'  >
-            <small [class.d-none]='emailField.valid || emailField.untouched' class='text-danger'> Enter Valid Email</small>
-             
+            <input matInput [(ngModel)]="userDetails.email" name="email" type="text" required [disabled]="!enableEdit" >
           </mat-form-field>
           <div *ngIf="userType === 'bank'">
-              <!-- <mat-form-field  appearance="outline">
+              <mat-form-field  appearance="outline">
                   <mat-label>Employee ID</mat-label>
-                  <input matInput   name="userDetails.employee_id" type="number" required disabled  placeholder="EmployeeId"  [(ngModel)]="employee_id" #employee_idField='ngModel' [class.is-invalid]='employee_idField.invalid' maxlength="11">
-                  <small [class.d-none]='employee_idField.valid || employee_idField.untouched' class='text-danger'>Is required</small >
-              </mat-form-field> -->
+                  <input matInput [(ngModel)]="userDetails.employee_id"  name="employee_id" type="text" required [disabled]="!enableEdit" >
+              </mat-form-field>
               <mat-form-field  appearance="outline">
                   <mat-label>Employee Designation</mat-label>
-                  <input matInput  [(ngModel)]="userDetails.employee_role"  name="employee_role" type="text" required [disabled]="!enableEdit" maxlength="255">
+                  <input matInput [(ngModel)]="userDetails.employee_role"  name="employee_role" type="text" required [disabled]="!enableEdit" >
               </mat-form-field>
               <mat-form-field  appearance="outline">
                   <mat-label>Job Start Date</mat-label>
-                  <input matInput value={{userDetails.job_start_date}}  name="job_start_date" type="date" required [disabled]="!enableEdit" >
+                  <input matInput [(ngModel)]="userDetails.job_start_date"  name="job_start_date" type="text" required [disabled]="!enableEdit" >
               </mat-form-field>
+
           </div>
           <mat-form-field appearance="outline">
             <mat-label>Mobile No.</mat-label>
-            <input  matInput type="number"  [(ngModel)]="userDetails.mobile_no"  placeholder="Mobile" name="mobile_no" required  [(ngModel)]="mobile_no" #mobile_noField='ngModel' pattern="[7-9]{1}[0-9]{9}"  [class.is-invalid]='mobile_noField.invalid'>
-            <small [class.d-none]='mobile_noField.valid || mobile_noField.untouched' class='text-danger'>Enter valid mobile number</small> 
+            <input matInput [(ngModel)]="userDetails.mobile_no" name="mobile_no" type="text" required [disabled]="!enableEdit" >
           </mat-form-field>
           <mat-divider [inset]="true"></mat-divider>
           <br>
           <mat-form-field appearance="outline">
               <mat-label>Aadhar Card</mat-label>
-              <input matInput [(ngModel)]="userDetails.aadhaar_card" name="aadhaar_card" type="text" required [disabled]="!enableEdit"   #aadhaar_cardField='ngModel' required [class.is-invalid]='aadhaar_cardField.invalid' pattern="[1-9]{1}[0-9]{11}" >
-              <small [class.d-none]='aadhaar_cardField.valid || aadhaar_cardField.untouched' class='text-danger'>Enter Valid Aadhaar Number</small  >
+              <input matInput [(ngModel)]="userDetails.aadhaar_card" name="aadhaar_card" type="text" required [disabled]="!enableEdit" >
           </mat-form-field> 
           <mat-form-field appearance="outline">
               <mat-label>Pan Card</mat-label>
-              <input matInput [(ngModel)]="userDetails.pan_card" name="pan_card" type="text" required [disabled]="!enableEdit"  #pan_cardField='ngModel'  [class.is-invalid]='pan_cardField.invalid' maxlength="10"  minlength="10" >
-              <small [class.d-none]='pan_cardField.valid || pan_cardField.untouched' class='text-danger'> Enter Valid Pan Number</small >
+              <input matInput [(ngModel)]="userDetails.pan_card" name="pan_card" type="text" required [disabled]="!enableEdit" >
             </mat-form-field>
-            <!-- <mat-form-field appearance="outline">
+            <mat-form-field appearance="outline">
                 <mat-label>Passport</mat-label>
-                <input matInput [(ngModel)]="userDetails.passport" name="passport" type="text" required [disabled]="!enableEdit"    #passportField='ngModel' required [class.is-invalid]='passportField.invalid' maxlength="8"  minlength="8" >
-                <small [class.d-none]='passportField.valid || passportField.untouched' class='text-danger'> Enter Valid Passport Number</small>
-            </mat-form-field> -->
+                <input matInput [(ngModel)]="userDetails.passport" name="passport" type="text" required [disabled]="!enableEdit" >
+            </mat-form-field>
             <mat-divider [inset]="true"></mat-divider>
             <br>
             <mat-form-field appearance="outline">
-                <mat-label>House No:</mat-label>
-                <input matInput [(ngModel)]="userDetails.house_no" name="house_no" type="text" required [disabled]="!enableEdit"   #house_noField='ngModel' [class.is-invalid]='house_noField.invalid' maxlength="255">
-                <small [class.d-none]='house_noField.valid || house_noField.untouched' class='text-danger'>is required</small >
+                <mat-label>Address</mat-label>
+                <input matInput [(ngModel)]="userDetails.house_no" name="house_no" type="text" required [disabled]="!enableEdit" >
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Street</mat-label>
@@ -84,9 +75,7 @@
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>State</mat-label>
-                <input matInput [(ngModel)]="userDetails.state" name="state" type="text" required [disabled]="!enableEdit"   #stateField='ngModel'[class.is-invalid]='stateField.invalid' maxlength="255">
-                                     
-                <small [class.d-none]='stateField.valid || stateField.untouched' class='text-danger'>Is required</small>
+                <input matInput [(ngModel)]="userDetails.state" name="state" type="text" required [disabled]="!enableEdit" >
             </mat-form-field>
 
       </mat-card-content>
@@ -96,4 +85,4 @@
       </mat-card-actions>        
   </form>
 </mat-card>
-          
+         
